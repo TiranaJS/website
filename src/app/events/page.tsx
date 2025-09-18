@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import FloatingClouds from '@/components/FloatingClouds';
 
 export default function EventsPage() {
   const upcomingEvents = [
@@ -141,7 +140,6 @@ export default function EventsPage() {
     <div className="min-h-screen bg-primary-50">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        <FloatingClouds />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-dark-primary mb-6">
             Community Events
@@ -269,7 +267,7 @@ export default function EventsPage() {
       </section>
 
       {/* Past Events */}
-      <section className="py-16 bg-primary-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-dark-primary mb-12">Past Events</h2>
 

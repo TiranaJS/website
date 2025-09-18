@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import FloatingClouds from '@/components/FloatingClouds';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -102,7 +101,6 @@ export default function ContactPage() {
     <div className="min-h-screen bg-primary-50">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        <FloatingClouds />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-dark-primary mb-6">
             Get in Touch
@@ -117,7 +115,7 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-white rounded-3xl shadow-sm p-8">
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm p-8 border border-primary-100">
             <h2 className="text-2xl font-bold text-dark-primary mb-6">
               Send us a Message
             </h2>

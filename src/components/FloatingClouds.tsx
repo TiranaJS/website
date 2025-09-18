@@ -1,10 +1,14 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useParallax, useScrollRotation, useScrollOpacity } from '@/hooks/useScrollAnimation';
+import React from "react";
+import {
+  useParallax,
+  useScrollRotation,
+  useScrollOpacity,
+} from "@/hooks/useScrollAnimation";
 
 interface FloatingLogoProps {
-  size: 'tiny' | 'small' | 'medium' | 'large' | 'xl' | 'xxl';
+  size: "tiny" | "small" | "medium" | "large" | "xl" | "xxl";
   position: string;
   animation: string;
   delay?: string;
@@ -15,79 +19,68 @@ interface FloatingLogoProps {
   opacityVariation?: number;
 }
 
-const TiranaJSLogo: React.FC<{ className?: string; id: string }> = ({ className, id }) => {
+const TiranaJSLogo: React.FC<{ className?: string; id: string }> = ({
+  className,
+  id,
+}) => {
   const uniqueId = `tiranajs-${id}`;
-  
+
   return (
     <svg 
-      width="100%" 
-      height="100%" 
-      viewBox="0 0 5129 6316" 
+      className={className}
+      viewBox="0 0 2493 1665" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
     >
+      <path fillRule="evenodd" clipRule="evenodd" d="M2140.64 1478.8C2037.37 1478.8 1978.98 1424.93 1934.09 1351.65L1763.94 1450.51C1825.41 1571.96 1951.04 1664.63 2145.49 1664.63C2344.37 1664.63 2492.45 1561.35 2492.45 1372.84C2492.45 1197.97 2392.01 1120.2 2214.1 1043.91L2161.76 1021.49C2071.92 982.581 2033.02 957.151 2033.02 894.337C2033.02 843.512 2071.89 804.607 2133.22 804.607C2193.34 804.607 2232.07 829.966 2267.97 894.337L2431.02 789.646C2362.05 668.333 2266.34 622 2133.22 622C1946.23 622 1826.57 741.545 1826.57 898.581C1826.57 1069.06 1926.95 1149.7 2078.04 1214.07L2130.39 1236.53C2225.88 1278.3 2282.82 1303.73 2282.82 1375.52C2282.82 1435.44 2227.4 1478.8 2140.64 1478.8Z" fill={`url(#logoGradient_${uniqueId})`}/>
+      <path d="M1329.19 1477.49C1257.25 1477.49 1227.33 1428.15 1194.44 1369.79L1024 1472.98C1073.37 1577.48 1170.46 1664.24 1338.1 1664.24C1523.65 1664.24 1650.76 1565.56 1650.76 1348.75V633.954H1441.38V1345.92C1441.38 1450.58 1397.98 1477.49 1329.19 1477.49Z" fill={`url(#logoGradient_${uniqueId})`}/>
       <g filter={`url(#filter0_i_${uniqueId})`}>
-        <g clipPath={`url(#paint0_diamond_${uniqueId}_clip_path)`} data-figma-skip-parse="true">
-          <g transform="matrix(-4.57455 21.7114 -13.0269 -2.74473 3393.03 3545.91)">
-            <rect x="0" y="0" width="192.447" height="311.378" fill={`url(#paint0_diamond_${uniqueId})`} opacity="1" shapeRendering="crispEdges"/>
-            <rect x="0" y="0" width="192.447" height="311.378" transform="scale(1 -1)" fill={`url(#paint0_diamond_${uniqueId})`} opacity="1" shapeRendering="crispEdges"/>
-            <rect x="0" y="0" width="192.447" height="311.378" transform="scale(-1 1)" fill={`url(#paint0_diamond_${uniqueId})`} opacity="1" shapeRendering="crispEdges"/>
-            <rect x="0" y="0" width="192.447" height="311.378" transform="scale(-1)" fill={`url(#paint0_diamond_${uniqueId})`} opacity="1" shapeRendering="crispEdges"/>
-          </g>
-        </g>
-        <path 
-          fillRule="evenodd" 
-          clipRule="evenodd" 
-          d="M2802.83 6227.11C2385.62 6526.91 1745.19 6005.52 1558.85 5574.32C1337.8 5062.79 1355.41 4716.7 1372.22 4386.23C1389.35 4049.32 1405.66 3728.63 1167.45 3265.4C994.197 2928.52 731.153 2705.84 498.645 2509C171.395 2231.97 -95.3627 2006.14 33.8876 1585.19C162.545 1166.16 561.694 1266.05 1027.46 1382.6C1659.26 1540.7 2413.63 1729.48 2781.78 695.475C3556.95 -1481.69 6587.01 2149.72 4274.21 2169.25C3253.11 2177.87 2472.72 3372.67 2747.89 4533.66C2772.63 4638.04 2806.95 4753.67 2842.84 4874.6C2991.29 5374.73 3166.68 5965.65 2802.83 6227.11Z" 
-          fill={`url(#paint0_diamond_${uniqueId})`}
-        />
+        <rect width="416.249" height="416.249" fill={`url(#paint0_linear_${uniqueId})`}/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M0 416.258H416.248H832.495V832.505L416.248 832.506L0 416.258ZM416.248 832.506C416.248 1248.75 832.496 1248.75 832.496 1248.75L832.495 1665C832.495 1665 624.372 1665 416.248 1560.94C293.995 1499.81 171.743 1402.78 91.673 1248.75C35.4693 1140.64 0.0488807 1004.44 0 832.862V832.505L416.248 832.506Z" fill={`url(#logoGradient_${uniqueId})`}/>
       </g>
       <defs>
-        <filter id={`filter0_i_${uniqueId}`} x="-39.3848" y="0.430664" width="5168.11" height="6315.38" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+        <filter id={`filter0_i_${uniqueId}`} x="0" y="0" width="832.496" height="1665" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
           <feFlood floodOpacity="0" result="BackgroundImageFix"/>
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-          <feOffset dx="-40"/>
-          <feGaussianBlur stdDeviation="125"/>
+          <feOffset/>
+          <feGaussianBlur stdDeviation="100"/>
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-          <feColorMatrix type="matrix" values="0 0 0 0 0.185559 0 0 0 0 0.156389 0 0 0 0 0.326923 0 0 0 0.75 0"/>
-          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_131"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0.185559 0 0 0 0 0.156389 0 0 0 0 0.326923 0 0 0 0.25 0"/>
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_62_2"/>
         </filter>
-        <clipPath id={`paint0_diamond_${uniqueId}_clip_path`}>
-          <path 
-            fillRule="evenodd" 
-            clipRule="evenodd" 
-            d="M2802.83 6227.11C2385.62 6526.91 1745.19 6005.52 1558.85 5574.32C1337.8 5062.79 1355.41 4716.7 1372.22 4386.23C1389.35 4049.32 1405.66 3728.63 1167.45 3265.4C994.197 2928.52 731.153 2705.84 498.645 2509C171.395 2231.97 -95.3627 2006.14 33.8876 1585.19C162.545 1166.16 561.694 1266.05 1027.46 1382.6C1659.26 1540.7 2413.63 1729.48 2781.78 695.475C3556.95 -1481.69 6587.01 2149.72 4274.21 2169.25C3253.11 2177.87 2472.72 3372.67 2747.89 4533.66C2772.63 4638.04 2806.95 4753.67 2842.84 4874.6C2991.29 5374.73 3166.68 5965.65 2802.83 6227.11Z"
-          />
-        </clipPath>
-        <linearGradient id={`paint0_diamond_${uniqueId}`} x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#94A4F5"/>
-          <stop offset="0.332622" stopColor="#EDB3F9"/>
+        <linearGradient id={`paint0_linear_${uniqueId}`} x1="129.2" y1="472.707" x2="148.72" y2="-133.916" gradientUnits="userSpaceOnUse">
+          <stop stopColor={`url(#logoGradient_${uniqueId})`} stopOpacity="0.9"/>
+          <stop offset="0.593915" stopColor={`url(#logoGradient_${uniqueId})`}/>
+        </linearGradient>
+        <linearGradient id={`logoGradient_${uniqueId}`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#2F2853" />
+          <stop offset="50%" stopColor="#4F3A6B" />
+          <stop offset="100%" stopColor="#a18cd1" />
         </linearGradient>
       </defs>
     </svg>
   );
 };
 
-const FloatingLogo: React.FC<FloatingLogoProps> = ({ 
-  size, 
-  position, 
-  animation, 
-  delay = '0s', 
+const FloatingLogo: React.FC<FloatingLogoProps> = ({
+  size,
+  position,
+  animation,
+  delay = "0s",
   opacity = 0.4,
   id,
   parallaxSpeed = 0.2,
   rotationSpeed = 0.05,
-  opacityVariation = 0.001
+  opacityVariation = 0.001,
 }) => {
   const sizeClasses = {
-    tiny: 'w-8 h-10',
-    small: 'w-16 h-20',
-    medium: 'w-24 h-30',
-    large: 'w-32 h-40',
-    xl: 'w-48 h-60',
-    xxl: 'w-64 h-80',
+    tiny: "w-8 h-10",
+    small: "w-16 h-20",
+    medium: "w-24 h-30",
+    large: "w-32 h-40",
+    xl: "w-48 h-60",
+    xxl: "w-64 h-80",
   };
 
   // Get scroll-based animations
@@ -98,10 +91,10 @@ const FloatingLogo: React.FC<FloatingLogoProps> = ({
   // Combine transforms
   const combinedStyle = {
     animationDelay: delay,
-    filter: 'drop-shadow(0 4px 6px rgba(139, 92, 246, 0.1))',
+    filter: "drop-shadow(0 4px 6px rgba(248, 235, 255, 0.3))",
     transform: `${parallaxStyle.transform} ${rotationStyle.transform}`,
     opacity: opacityStyle.opacity,
-    transition: 'transform 0.1s ease-out, opacity 0.1s ease-out',
+    transition: "transform 0.1s ease-out, opacity 0.1s ease-out",
   };
 
   return (
@@ -129,7 +122,7 @@ const FloatingClouds: React.FC = () => {
         rotationSpeed={0.02}
         opacityVariation={0.0005}
       />
-      
+
       <FloatingLogo
         size="xl"
         position="bottom-20 -right-16"
@@ -141,7 +134,7 @@ const FloatingClouds: React.FC = () => {
         rotationSpeed={-0.03}
         opacityVariation={0.0008}
       />
-      
+
       {/* Medium floating logos - medium parallax */}
       <FloatingLogo
         size="large"
@@ -154,7 +147,7 @@ const FloatingClouds: React.FC = () => {
         rotationSpeed={0.04}
         opacityVariation={0.001}
       />
-      
+
       <FloatingLogo
         size="medium"
         position="top-1/2 left-1/3"
@@ -166,7 +159,7 @@ const FloatingClouds: React.FC = () => {
         rotationSpeed={-0.05}
         opacityVariation={0.0012}
       />
-      
+
       <FloatingLogo
         size="medium"
         position="bottom-1/3 right-1/3"
@@ -178,7 +171,7 @@ const FloatingClouds: React.FC = () => {
         rotationSpeed={0.06}
         opacityVariation={0.0015}
       />
-      
+
       {/* Small accent logos - fastest parallax */}
       <FloatingLogo
         size="small"
@@ -191,7 +184,7 @@ const FloatingClouds: React.FC = () => {
         rotationSpeed={-0.07}
         opacityVariation={0.002}
       />
-      
+
       <FloatingLogo
         size="tiny"
         position="top-20 left-1/2"
@@ -203,7 +196,7 @@ const FloatingClouds: React.FC = () => {
         rotationSpeed={0.08}
         opacityVariation={0.0025}
       />
-      
+
       <FloatingLogo
         size="small"
         position="top-1/3 left-10"
@@ -215,7 +208,7 @@ const FloatingClouds: React.FC = () => {
         rotationSpeed={-0.06}
         opacityVariation={0.0018}
       />
-      
+
       {/* Additional scattered logos */}
       <FloatingLogo
         size="medium"
@@ -228,7 +221,7 @@ const FloatingClouds: React.FC = () => {
         rotationSpeed={0.05}
         opacityVariation={0.0013}
       />
-      
+
       <FloatingLogo
         size="tiny"
         position="top-2/3 right-1/3"

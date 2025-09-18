@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import FloatingClouds from '@/components/FloatingClouds';
 import Logo from '@/components/Logo';
 
 export default function AboutPage() {
@@ -113,7 +112,6 @@ export default function AboutPage() {
     <div className="min-h-screen bg-primary-50">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        <FloatingClouds />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-8">
             <Logo size="lg" showText={true} />
@@ -129,7 +127,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Story */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white/60 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -147,7 +145,7 @@ export default function AboutPage() {
                 Join Our Next Event
               </Link>
             </div>
-            <div className="bg-gradient-primary rounded-3xl p-8 text-white">
+            <div className="bg-primary-600 rounded-3xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">What We Offer</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
@@ -187,7 +185,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-16 bg-primary-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-dark-primary mb-4">Our Values</h2>
@@ -259,7 +257,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-16 bg-primary-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-dark-primary mb-4">Meet Our Team</h2>

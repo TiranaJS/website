@@ -11,12 +11,13 @@
   
   body {
     @apply bg-primary-50 text-dark-primary;
+    min-height: 100vh;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-primary text-white px-6 py-3 rounded-2xl font-semibold 
+    @apply bg-primary-600 text-white px-6 py-3 rounded-2xl font-semibold 
            hover:shadow-lg transition-all duration-300 transform hover:scale-105;
   }
   
@@ -26,7 +27,12 @@
   }
   
   .card {
-    @apply bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6;
+    @apply bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 p-6 border border-primary-50/50;
+  }
+  
+  .card-lavender {
+    @apply bg-primary-50 rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 p-6 border;
+    border-color: rgba(214, 188, 229, 0.3); /* accent-light with 30% opacity */
   }
   
   .floating-cloud {
@@ -38,7 +44,14 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-cloud bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #a18cd1 0%, #ff9a9e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, #F8EBFF 0%, #e6e0ff 25%, #ffffff 50%, #f8f7ff 75%, #F8EBFF 100%);
   }
   
   .organic-cloud {

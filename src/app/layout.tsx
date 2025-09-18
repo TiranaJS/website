@@ -22,8 +22,12 @@ export const metadata: Metadata = {
     description: 'Connect. Learn. Code. Together.',
     creator: '@tiranajs',
   },
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -33,7 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen bg-primary-50">
+      <body className="min-h-screen bg-white">
         <Navigation />
         <main className="min-h-screen">
           {children}

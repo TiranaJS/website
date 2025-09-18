@@ -37,7 +37,7 @@ const FirstEvent: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="card overflow-hidden shadow-2xl">
             {/* Event Header */}
-            <div className="bg-gradient-primary p-8 text-white">
+            <div className="bg-primary-600 p-8 text-white">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div className="mb-4 md:mb-0">
                   <h3 className="text-2xl md:text-3xl font-bold mb-2">

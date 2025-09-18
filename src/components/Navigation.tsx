@@ -10,19 +10,19 @@ const Navigation: React.FC = () => {
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Events', href: '/events' },
-    { name: 'Speakers', href: '/speakers' },
     { name: 'About', href: '/about' },
-    { name: 'Resources', href: '/resources' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+    <nav className="bg-white/70 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-primary-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <Logo size="sm" showText={true} />
+            <div className="text-logo-primary">
+              <Logo size="sm" showText={true} />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -32,7 +32,7 @@ const Navigation: React.FC = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-dark-primary hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-xl hover:bg-primary-50"
+                  className="text-dark-primary hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-xl hover:bg-primary-50/80"
                 >
                   {item.name}
                 </Link>
@@ -86,7 +86,7 @@ const Navigation: React.FC = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden bg-white border-t border-primary-100`}>
+      <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden bg-primary-50/90 backdrop-blur-md border-t border-primary-100`}>
         <div className="px-2 pt-2 pb-3 space-y-1">
           {navItems.map((item) => (
             <Link

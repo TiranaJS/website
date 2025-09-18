@@ -8,7 +8,7 @@ module.exports = {
       colors: {
         // Primary palette based on TiranaJS design
         primary: {
-          50: '#f8f7ff',   // Very light lavender
+          50: '#F8EBFF',   // Logo light color - main accent
           100: '#f0edff',  // Light lavender background
           200: '#e6e0ff',  // Soft lavender
           300: '#d4c9ff',  // Medium lavender
@@ -23,15 +23,23 @@ module.exports = {
         accent: {
           pink: '#ff9a9e',    // Light pink for gradient
           purple: '#a18cd1',  // Light purple for gradient
+          lavender: '#F8EBFF', // Main accent lavender
+          light: '#D6BCE5',   // Lighter lavender
         },
         dark: {
           primary: '#2d1b69',  // Dark indigo for text/backgrounds
           secondary: '#3d2875', // Slightly lighter dark
+        },
+        logo: {
+          primary: '#2F2853',  // Logo's main color
         }
       },
       backgroundImage: {
         'gradient-cloud': 'linear-gradient(135deg, #a18cd1 0%, #ff9a9e 100%)',
         'gradient-primary': 'linear-gradient(135deg, #9c85ff 0%, #7c5aff 100%)',
+        'gradient-lavender': 'linear-gradient(135deg, #F8EBFF 0%, #ffffff 100%)',
+        'gradient-lavender-soft': 'linear-gradient(135deg, #F8EBFF 0%, #f0edff 50%, #ffffff 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #F8EBFF 0%, #e6e0ff 25%, #ffffff 50%, #f8f7ff 75%, #F8EBFF 100%)',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],

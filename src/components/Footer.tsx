@@ -64,7 +64,9 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
-            <Logo size="md" showText={true} className="mb-4" />
+            <div className="text-white">
+              <Logo size="md" showText={true} className="mb-4" variant="light" />
+            </div>
             <p className="text-primary-200 text-sm leading-relaxed max-w-md">
               TiranaJS Community brings together JavaScript developers in Tirana and beyond. 
               Join us for talks, workshops, networking, and building the future of web development together.
