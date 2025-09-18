@@ -59,7 +59,7 @@ const AnimatedHero: React.FC = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link href="/events" className="btn-primary text-lg px-8 py-4">
-                Join Our Next Meetup
+                Join Our Next Event
               </Link>
               <Link href="/about" className="btn-secondary text-lg px-8 py-4">
                 Learn More
@@ -94,7 +94,6 @@ const AnimatedHero: React.FC = () => {
             <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
-            <p className="text-sm mt-2">Scroll to see the magic ✨</p>
           </div>
         </div>
       </div>

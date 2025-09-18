@@ -3,6 +3,7 @@ import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import MobileLogoPill from '@/components/MobileLogoPill';
+import RouteLoaderOverlay from '@/components/RouteLoaderOverlay';
 
 export const metadata: Metadata = {
   title: 'TiranaJS Community - Connect. Learn. Code. Together.',
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="min-h-screen bg-white">
+        <RouteLoaderOverlay />
         <Navigation />
         <main className="min-h-screen">
           {children}

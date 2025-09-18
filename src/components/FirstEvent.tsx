@@ -6,7 +6,7 @@ const FirstEvent: React.FC = () => {
     date: "March 15, 2024",
     time: "18:30",
     location: "Innovation Hub Tirana",
-    description: "Join us for the inaugural meetup of TiranaJS! We're launching Tirana's newest JavaScript community with an evening of networking, lightning talks, and exciting discussions about the future of web development in our city.",
+    description: "Join us for the inaugural event of TiranaJS! We're launching Tirana's newest JavaScript community with an evening of networking, lightning talks, and exciting discussions about the future of web development in our city.",
     highlights: [
       "Meet fellow JavaScript enthusiasts",
       "Lightning talks from local developers", 
@@ -28,7 +28,7 @@ const FirstEvent: React.FC = () => {
             Our First Event
           </h2>
           <p className="text-xl text-dark-secondary max-w-2xl mx-auto leading-relaxed">
-            Be part of history! Join us for the very first TiranaJS community meetup and help us 
+            Be part of history! Join us for the very first TiranaJS community event and help us 
             build something amazing together.
           </p>
         </div>
@@ -128,7 +128,7 @@ const FirstEvent: React.FC = () => {
         {/* Additional Info */}
         <div className="text-center mt-8">
           <p className="text-dark-secondary">
-            Can't make it to our first event? Follow us to stay updated on future meetups!
+            Can't make it to our first event? Follow us to stay updated on future events!
           </p>
         </div>
       </div>

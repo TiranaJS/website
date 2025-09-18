@@ -25,14 +25,14 @@ export default function ContactPage() {
 
   const socialLinks = [
     {
-      name: 'Meetup',
-      url: 'https://www.meetup.com/tirana-js',
+      name: 'Luma',
+      url: 'https://lu.ma/tiranajs',
       icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M6.98 8.398c.28-.28.65-.42 1.02-.42.37 0 .74.14 1.02.42l3.58 3.58c.56.56.56 1.48 0 2.04-.28.28-.65.42-1.02.42-.37 0-.74-.14-1.02-.42l-3.58-3.58c-.56-.56-.56-1.48 0-2.04zm8.04 0c.28-.28.65-.42 1.02-.42.37 0 .74.14 1.02.42.56.56.56 1.48 0 2.04l-3.58 3.58c-.28.28-.65.42-1.02.42-.37 0-.74-.14-1.02-.42-.56-.56-.56-1.48 0-2.04l3.58-3.58z"/>
+        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm3.8 6.6a1 1 0 00-1.6-1.2l-3.2 4.267-1.4-1.867a1 1 0 00-1.6 1.2l2.2 2.933a1 1 0 001.6 0l4-5.333z"/>
         </svg>
       ),
-      description: 'Join our Meetup group for event updates and networking',
+      description: 'RSVP on Luma for event updates and registration',
     },
     {
       name: 'Twitter',
@@ -100,12 +100,12 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-primary-50">
       {/* Hero Section */}
-      <section className="relative pt-28 md:pt-36 pb-20 overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 md:pt-36 pb-16 md:pb-20 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-dark-primary mb-6">
             Get in Touch
           </h1>
-          <p className="text-xl text-dark-secondary max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-dark-secondary max-w-3xl mx-auto leading-relaxed">
             Have a question, want to speak at our events, or interested in partnering with us? 
             We&apos;d love to hear from you!
           </p>
@@ -113,17 +113,17 @@ export default function ContactPage() {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 md:gap-1 items-start">
           {/* Contact Form */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm p-8 border border-primary-100">
-            <h2 className="text-2xl font-bold text-dark-primary mb-6">
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm p-8 md:p-6 border border-primary-100 max-w-xl mx-auto w-full">
+            <h2 className="text-2xl sm:text-3xl font-bold text-dark-primary mb-6">
               Send us a Message
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Contact Type */}
               <div>
-                <label htmlFor="type" className="block text-sm font-medium text-dark-primary mb-2">
+                <label htmlFor="type" className="block text-base md:text-sm font-medium text-dark-primary mb-2">
                   What can we help you with?
                 </label>
                 <select
@@ -131,7 +131,7 @@ export default function ContactPage() {
                   name="type"
                   value={formData.type}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-full px-5 py-4 text-lg md:px-4 md:py-3 md:text-base border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   required
                 >
                   {contactTypes.map((type) => (
@@ -145,7 +145,7 @@ export default function ContactPage() {
               {/* Name and Email */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-dark-primary mb-2">
+                  <label htmlFor="name" className="block text-base md:text-sm font-medium text-dark-primary mb-2">
                     Full Name *
                   </label>
                   <input
@@ -154,12 +154,12 @@ export default function ContactPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-5 py-4 text-lg md:px-4 md:py-3 md:text-base border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     required
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-dark-primary mb-2">
+                  <label htmlFor="email" className="block text-base md:text-sm font-medium text-dark-primary mb-2">
                     Email Address *
                   </label>
                   <input
@@ -168,7 +168,7 @@ export default function ContactPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    className="w-full px-5 py-4 text-lg md:px-4 md:py-3 md:text-base border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -176,7 +176,7 @@ export default function ContactPage() {
 
               {/* Subject */}
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-dark-primary mb-2">
+                <label htmlFor="subject" className="block text-base md:text-sm font-medium text-dark-primary mb-2">
                   Subject *
                 </label>
                 <input
@@ -185,14 +185,14 @@ export default function ContactPage() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-full px-5 py-4 text-lg md:px-4 md:py-3 md:text-base border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   required
                 />
               </div>
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-dark-primary mb-2">
+                <label htmlFor="message" className="block text-base md:text-sm font-medium text-dark-primary mb-2">
                   Message *
                 </label>
                 <textarea
@@ -201,7 +201,7 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={6}
-                  className="w-full px-4 py-3 border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
+                  className="w-full px-5 py-4 text-lg md:px-4 md:py-3 md:text-base border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
                   required
                 />
               </div>
@@ -210,7 +210,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full btn-primary py-4 md:py-3 text-lg md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
@@ -231,9 +231,9 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-4 sm:space-y-6">
             {/* Quick Contact Info */}
-            <div className="bg-white rounded-3xl shadow-sm p-8">
+            <div className="bg-white rounded-3xl shadow-sm p-6 sm:p-8">
               <h3 className="text-xl font-bold text-dark-primary mb-6">
                 Quick Contact
               </h3>
@@ -279,7 +279,7 @@ export default function ContactPage() {
             </div>
 
             {/* Social Media */}
-            <div className="bg-white rounded-3xl shadow-sm p-8">
+            <div className="bg-white rounded-3xl shadow-sm p-6 sm:p-8">
               <h3 className="text-xl font-bold text-dark-primary mb-6">
                 Connect With Us
               </h3>
@@ -310,7 +310,7 @@ export default function ContactPage() {
             </div>
 
             {/* FAQ */}
-            <div className="bg-white rounded-3xl shadow-sm p-8">
+            <div className="bg-white rounded-3xl shadow-sm p-6 sm:p-8">
               <h3 className="text-xl font-bold text-dark-primary mb-6">
                 Frequently Asked Questions
               </h3>

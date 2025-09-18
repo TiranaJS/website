@@ -95,9 +95,6 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative pt-28 md:pt-36 pb-20 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex justify-center mb-8">
-            <Logo size="lg" showText={true} />
-          </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-dark-primary mb-6">
             About Our Community
           </h1>
@@ -121,7 +118,7 @@ export default function AboutPage() {
               </p>
               <p className="text-dark-secondary leading-relaxed mb-6">
                 Our mission is to provide a platform where developers can learn from each other, share 
-                their experiences, and build meaningful connections that last beyond our monthly meetups.
+                their experiences, and build meaningful connections that last beyond our monthly events.
               </p>
               <Link href="/events" className="btn-primary">
                 Join Our Next Event
@@ -134,7 +131,7 @@ export default function AboutPage() {
                   <svg className="w-6 h-6 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>Monthly meetups with expert speakers</span>
+                  <span>Monthly events with expert speakers</span>
                 </li>
                 <li className="flex items-start">
                   <svg className="w-6 h-6 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
