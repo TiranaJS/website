@@ -5,9 +5,10 @@ interface LogoProps {
   showText?: boolean;
   className?: string;
   variant?: 'dark' | 'light';
+  textSize?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const Logo: React.FC<LogoProps> = ({ size = 'md', showText = true, className = '', variant = 'dark' }) => {
+const Logo: React.FC<LogoProps> = ({ size = 'md', showText = true, className = '', variant = 'dark', textSize }) => {
   const sizeClasses = {
     sm: 'h-8',
     md: 'h-12',
@@ -21,6 +22,8 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', showText = true, className = '
     lg: 'text-3xl',
     xl: 'text-5xl',
   };
+
+  const effectiveTextSize = textSize ?? size;
 
   return (
     <div className={`flex items-center space-x-3 ${className}`}>
@@ -94,10 +97,10 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', showText = true, className = '
       {/* Text */}
       {showText && (
         <div className="flex flex-col">
-          <h1 className={`${textSizeClasses[size]} font-bold ${variant === 'light' ? 'text-white' : 'text-dark-primary'} leading-none`}>
+          <h1 className={`${textSizeClasses[effectiveTextSize]} font-bold ${variant === 'light' ? 'text-white' : 'text-dark-primary'} leading-none`}>
             TiranaJS
           </h1>
-          <p className={`${variant === 'light' ? 'text-primary-200' : 'text-dark-secondary'} font-normal ${size === 'xl' ? 'text-xl' : size === 'lg' ? 'text-lg' : 'text-sm'} leading-tight`}>
+          <p className={`${variant === 'light' ? 'text-primary-200' : 'text-dark-secondary'} font-normal ${effectiveTextSize === 'xl' ? 'text-xl' : effectiveTextSize === 'lg' ? 'text-lg' : effectiveTextSize === 'md' ? 'text-sm' : 'text-xs'} leading-tight`}>
             Community
           </p>
         </div>

@@ -8,7 +8,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const AnimatedHero: React.FC = () => {
   const { scrollYProgress } = useScroll();
 
-  const logoScale = useTransform(scrollYProgress, [0, 0.1, 0.3], [1, 3, 10]);
+  const logoScale = useTransform(scrollYProgress, [0, 0.1, 0.3], [1.25, 3.75, 12.5]);
   const logoX = useTransform(scrollYProgress, [0, 0.1, 0.3], [0, -200, -600]);
   const logoY = useTransform(scrollYProgress, [0, 0.1, 0.3], [0, -100, -300]);
 
@@ -55,7 +55,7 @@ const AnimatedHero: React.FC = () => {
             className="flex-shrink-0 relative z-50"
             style={{ scale: logoScale, x: logoX, y: logoY }}
           >
-            <div className="w-96 h-84 lg:w-[28rem] lg:h-96 relative">
+            <div className="w-[30rem] h-[25rem] lg:w-[35rem] lg:h-[30rem] relative">
               {/* First SVG - TiranaJS Logo */}
               <motion.div className="absolute inset-0" style={{ opacity: firstSvgOpacity }}>
                 <Image 
@@ -66,41 +66,6 @@ const AnimatedHero: React.FC = () => {
                   className="w-full h-full object-contain"
                   priority
                 />
-              </motion.div>
-
-              {/* Second SVG - Morphed TiranaJS Shape */}
-              <motion.div className="absolute inset-0" style={{ opacity: secondSvgOpacity }}>
-                <svg 
-                  viewBox="0 0 3580 3311" 
-                  className="w-full h-full"
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                  preserveAspectRatio="xMidYMid slice"
-                >
-                  <motion.path 
-                    initial={{
-                      d: "M3.41868 523.466C-45.5798 194.998 443.415 -19.0218 746.346 1.33621C1105.71 25.4864 1299.43 137.919 1484.41 245.282C1673 354.734 1852.5 458.917 2189.18 458.917C2434.02 458.917 2639.77 373.534 2821.64 298.063C3077.61 191.839 3286.26 105.251 3490.01 303.999C3692.83 501.837 3517.44 701.765 3312.76 935.064C3035.14 1251.52 2703.65 1629.38 3189.15 2146.7C4211.43 3235.96 1228.48 3904.28 1900.9 2568.95C2197.77 1979.41 1741.7 1177.56 993.033 992.523C647.383 907.092 56.4849 879.202 3.41868 523.466Z"
-                    }}
-                    animate={{
-                      d: [
-                        "M3.41868 523.466C-45.5798 194.998 443.415 -19.0218 746.346 1.33621C1105.71 25.4864 1299.43 137.919 1484.41 245.282C1673 354.734 1852.5 458.917 2189.18 458.917C2434.02 458.917 2639.77 373.534 2821.64 298.063C3077.61 191.839 3286.26 105.251 3490.01 303.999C3692.83 501.837 3517.44 701.765 3312.76 935.064C3035.14 1251.52 2703.65 1629.38 3189.15 2146.7C4211.43 3235.96 1228.48 3904.28 1900.9 2568.95C2197.77 1979.41 1741.7 1177.56 993.033 992.523C647.383 907.092 56.4849 879.202 3.41868 523.466Z",
-                        "M1790 100C2200 100 2500 400 2800 800C3100 1200 3400 1600 3400 1655C3400 1700 3100 2000 2800 2300C2500 2600 2200 2900 1790 2900C1380 2900 1080 2600 780 2300C480 2000 180 1700 180 1655C180 1600 480 1200 780 800C1080 400 1380 100 1790 100Z",
-                        "M1790 200C2400 200 3200 600 3200 1655C3200 2700 2400 3100 1790 3100C1180 3100 380 2700 380 1655C380 600 1180 200 1790 200Z",
-                        "M3.41868 523.466C-45.5798 194.998 443.415 -19.0218 746.346 1.33621C1105.71 25.4864 1299.43 137.919 1484.41 245.282C1673 354.734 1852.5 458.917 2189.18 458.917C2434.02 458.917 2639.77 373.534 2821.64 298.063C3077.61 191.839 3286.26 105.251 3490.01 303.999C3692.83 501.837 3517.44 701.765 3312.76 935.064C3035.14 1251.52 2703.65 1629.38 3189.15 2146.7C4211.43 3235.96 1228.48 3904.28 1900.9 2568.95C2197.77 1979.41 1741.7 1177.56 993.033 992.523C647.383 907.092 56.4849 879.202 3.41868 523.466Z"
-                      ]
-                    }}
-                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                    fill="url(#morphGradient)"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  />
-                  <defs>
-                    <linearGradient id="morphGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#94A4F5" />
-                      <stop offset="0.332622" stopColor="#EDB3F9" />
-                    </linearGradient>
-                  </defs>
-                </svg>
               </motion.div>
             </div>
           </motion.div>

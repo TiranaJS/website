@@ -41,33 +41,6 @@ export default function AboutPage() {
     },
   ];
 
-  const milestones = [
-    {
-      year: '2020',
-      title: 'Community Founded',
-      description: 'Started with 15 passionate developers meeting monthly at local cafes.',
-    },
-    {
-      year: '2021',
-      title: 'First Workshop',
-      description: 'Hosted our first hands-on React workshop with 25 attendees.',
-    },
-    {
-      year: '2022',
-      title: '100 Members',
-      description: 'Reached our first major milestone of 100 active community members.',
-    },
-    {
-      year: '2023',
-      title: 'Partnership Program',
-      description: 'Established partnerships with local tech companies and innovation hubs.',
-    },
-    {
-      year: '2024',
-      title: '500+ Strong',
-      description: 'Now the largest JavaScript community in Albania with 500+ members.',
-    },
-  ];
 
   const values = [
     {
@@ -214,47 +187,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-dark-primary mb-4">Our Journey</h2>
-            <p className="text-xl text-dark-secondary max-w-2xl mx-auto">
-              From a small group of developers to Albania&apos;s largest JavaScript community.
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary-200 hidden lg:block"></div>
-
-            <div className="space-y-8 lg:space-y-12">
-              {milestones.map((milestone, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                  <div className={`flex-1 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                    <div className="card hover:shadow-lg transition-all duration-300">
-                      <div className="text-primary-600 font-bold text-lg mb-2">
-                        {milestone.year}
-                      </div>
-                      <h3 className="text-xl font-semibold text-dark-primary mb-3">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-dark-secondary leading-relaxed">
-                        {milestone.description}
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Timeline dot */}
-                  <div className="hidden lg:flex w-4 h-4 bg-primary-500 rounded-full border-4 border-white shadow-lg z-10"></div>
-                  
-                  <div className="flex-1"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Team */}
       <section className="py-16 bg-white">
