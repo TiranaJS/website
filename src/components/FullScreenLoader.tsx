@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Logo from '@/components/Logo';
-import TiranaBlob from '@/components/TiranaBlob';
 
 const FullScreenLoader: React.FC = () => {
   return (
@@ -22,14 +21,22 @@ const FullScreenLoader: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Stage 1: TiranaJS emblem (right) rendered inline for crispness */}
+          {/* Stage 1: TiranaJS emblem (right) using original glossy SVG with subtle pulse */}
           <motion.div
             className="h-20 sm:h-24 md:h-28 w-auto"
-            initial={{ opacity: 0, x: 0 }}
-            animate={{ opacity: [0, 1, 1], x: [0, 0, 0] }}
-            transition={{ duration: 1.5, ease: 'easeInOut', times: [0, 0.5, 1] }}
+            initial={{ scale: 1 }}
+            animate={{ scale: [1, 1.04, 1] }}
+            transition={{ duration: 1.8, ease: 'easeInOut', repeat: Infinity, repeatDelay: 0.2 }}
+            style={{ willChange: 'transform' }}
           >
-            <TiranaBlob className="h-full w-auto" />
+            <motion.img
+              src="/assets/svgs/tiranajs.svg"
+              alt="TiranaJS emblem"
+              className="h-full w-auto object-contain"
+              initial={{ opacity: 0, x: 0 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
+            />
           </motion.div>
         </div>
       </div>
