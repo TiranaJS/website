@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import MobileLogoPill from '@/components/MobileLogoPill';
 
 export const metadata: Metadata = {
   title: 'TiranaJS Community - Connect. Learn. Code. Together.',
@@ -42,6 +43,7 @@ export default function RootLayout({
         <main className="min-h-screen">
           {children}
         </main>
+        <MobileLogoPill />
         <Footer />
       </body>
     </html>

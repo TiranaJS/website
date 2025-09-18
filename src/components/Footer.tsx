@@ -13,9 +13,7 @@ const Footer: React.FC = () => {
   ];
 
   const resources = [
-    { name: 'Resources', href: '/resources' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Code of Conduct', href: '/code-of-conduct' },
     { name: 'Privacy Policy', href: '/privacy' },
   ];
 

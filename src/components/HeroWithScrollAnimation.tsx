@@ -15,6 +15,19 @@ const AnimatedHero = dynamic(() => import("./AnimatedHero"), {
 const StaticHero: React.FC = () => {
   return (
     <section className="relative min-h-[120vh] flex items-center justify-center overflow-hidden bg-gradient-hero">
+      {/* Background logo on small screens */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center lg:hidden opacity-25" style={{ transform: 'scale(1.25)' }}>
+        <div className="w-[22rem] h-[18rem] sm:w-[26rem] sm:h-[22rem] relative">
+          <Image
+            src="/assets/svgs/tiranajs.svg"
+            alt="TiranaJS Logo"
+            width={3580}
+            height={3311}
+            className="w-full h-full object-contain"
+            priority
+          />
+        </div>
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
           {/* Static content for SSR */}
@@ -39,7 +52,7 @@ const StaticHero: React.FC = () => {
               </Link>
             </div>
           </div>
-          <div className="flex-shrink-0 relative z-50" style={{ transform: 'scale(1.25)' }}>
+          <div className="hidden lg:block flex-shrink-0 relative z-50" style={{ transform: 'scale(1.25)' }}>
             <div className="w-[30rem] h-[25rem] lg:w-[35rem] lg:h-[30rem] relative">
               <Image
                 src="/assets/svgs/tiranajs.svg"

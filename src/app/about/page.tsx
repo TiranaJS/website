@@ -1,43 +1,52 @@
 import React from 'react';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
+import Image, { type StaticImageData } from 'next/image';
+import fabionPhoto from '@/assets/members/fabio.jpeg';
+import renatoPhoto from '@/assets/members/renato.jpeg';
+import mateoPhoto from '@/assets/members/mateo.png';
+
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  expertise: string[];
+  linkedin: string;
+  twitter?: string;
+  github?: string;
+  dribbble?: string;
+  imageSrc?: StaticImageData | string;
+  responsibilities?: string[];
+};
 
 export default function AboutPage() {
-  const teamMembers = [
+  const teamMembers: TeamMember[] = [
     {
-      name: 'Elena Marku',
-      role: 'Community Lead & Organizer',
-      bio: 'Full-stack developer with 8+ years of experience. Passionate about building inclusive tech communities and mentoring new developers.',
-      expertise: ['React', 'Node.js', 'Community Building'],
-      linkedin: 'https://linkedin.com/in/elena-marku',
-      twitter: 'https://twitter.com/elenamarku',
-      github: 'https://github.com/elenamarku',
+      name: 'Renato Selenica',
+      role: 'Organizer',
+      bio: 'Software engineer and community organizer supporting TiranaJS operations and growth. Focused on running smooth events and creating value for members.',
+      expertise: ['JavaScript', 'DevOps', 'Community'],
+      linkedin: 'https://www.linkedin.com/in/renatoselenica?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      imageSrc: renatoPhoto,
+      responsibilities: ['Venue coordination', 'Sponsor relations', 'Event logistics'],
     },
     {
-      name: 'Arben Krasniqi',
-      role: 'Technical Program Manager',
-      bio: 'Frontend architect and React expert. Loves sharing knowledge about modern web development and performance optimization.',
-      expertise: ['React', 'TypeScript', 'Performance'],
-      linkedin: 'https://linkedin.com/in/arben-krasniqi',
-      twitter: 'https://twitter.com/arbenkrasniqi',
-      github: 'https://github.com/arbenkrasniqi',
+      name: 'Mateo Kurti',
+      role: 'Organizer',
+      bio: 'Developer and event organizer focused on JavaScript education and mentorship. Helps grow the community through content and outreach.',
+      expertise: ['JavaScript', 'React', 'Community'],
+      linkedin: 'https://www.linkedin.com/in/mateokurti?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      imageSrc: mateoPhoto,
+      responsibilities: ['Speaker outreach', 'Community growth', 'Social content'],
     },
     {
-      name: 'Fatmir Hoxha',
-      role: 'Event Coordinator',
-      bio: 'Backend developer and DevOps enthusiast. Ensures our events run smoothly and our community has the best experience.',
-      expertise: ['Node.js', 'DevOps', 'Event Planning'],
-      linkedin: 'https://linkedin.com/in/fatmir-hoxha',
-      github: 'https://github.com/fatmirhoxha',
-    },
-    {
-      name: 'Ilda Nallbani',
-      role: 'Content & Social Media Manager',
-      bio: 'UX/UI designer and frontend developer. Creates engaging content and manages our online presence across platforms.',
-      expertise: ['UI/UX Design', 'Vue.js', 'Content Strategy'],
-      linkedin: 'https://linkedin.com/in/ilda-nallbani',
-      twitter: 'https://twitter.com/ildanallbani',
-      dribbble: 'https://dribbble.com/ildanallbani',
+      name: 'Fabion Rabushja',
+      role: 'Frontend Team Lead & Organizer',
+      bio: 'Frontend Team Lead at Nexum-ai and cloud enthusiast. Google Associate Cloud Engineer certified. Passionate about building community and sharing practical JavaScript knowledge.',
+      expertise: ['React', 'TypeScript', 'Performance', 'Cloud'],
+      linkedin: 'https://www.linkedin.com/in/fabion-rabushja?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      imageSrc: fabionPhoto,
+      responsibilities: ['Program content', 'Lead frontend workshops', 'Community partnerships'],
     },
   ];
 
@@ -84,7 +93,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-primary-50">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative pt-28 md:pt-36 pb-20 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-8">
             <Logo size="lg" showText={true} />
@@ -198,13 +207,25 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
             {teamMembers.map((member, index) => (
-              <div key={index} className="card text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div key={index} className="card w-full max-w-sm mx-auto text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 {/* Avatar */}
-                <div className="w-24 h-24 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </div>
+                {member.imageSrc ? (
+                  <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4">
+                    <Image
+                      src={member.imageSrc}
+                      alt={`${member.name} photo`}
+                      width={96}
+                      height={96}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-24 h-24 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                )}
 
                 <h3 className="text-lg font-semibold text-dark-primary mb-1">
                   {member.name}
@@ -215,6 +236,19 @@ export default function AboutPage() {
                 <p className="text-dark-secondary text-sm leading-relaxed mb-4">
                   {member.bio}
                 </p>
+
+                {member.responsibilities && member.responsibilities.length > 0 && (
+                  <div className="flex flex-wrap justify-center gap-2 mb-4">
+                    {member.responsibilities.map((item, itemIndex) => (
+                      <span
+                        key={itemIndex}
+                        className="px-2 py-1 bg-primary-50 text-primary-700 text-xs font-medium rounded-full border border-primary-100"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 {/* Expertise tags */}
                 <div className="flex flex-wrap justify-center gap-2 mb-4">
