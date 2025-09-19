@@ -42,7 +42,7 @@ const Navigation: React.FC = () => {
         <div className={`mx-auto max-w-6xl mt-4 rounded-2xl transition-colors duration-300 ${(isScrolled || isMenuOpen) ? 'glass border border-white/20 shadow' : ''}`}>
           <div className="flex items-center justify-between px-4 md:px-5 py-2 md:py-3">
             {/* Left: Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center isolate">
               <Link href="/" className="inline-flex items-center gap-2">
                 <div className="text-logo-primary">
                   <Logo size="sm" textSize="sm" showText={true} />

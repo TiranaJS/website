@@ -32,7 +32,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', showText = true, className = '
         {variant === 'light' ? (
           // Light version for dark backgrounds
           <svg 
-            className={sizeClasses[size]} 
+            className={`${sizeClasses[size]} overflow-visible`} 
             viewBox="0 0 2493 1665" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', showText = true, className = '
         ) : (
           // Dark version for light backgrounds (default)
           <svg 
-            className={sizeClasses[size]} 
+            className={`${sizeClasses[size]} overflow-visible`} 
             viewBox="0 0 2493 1665" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
