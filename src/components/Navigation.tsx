@@ -1,13 +1,33 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Logo from './Logo';
 import { usePathname } from 'next/navigation';
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const isGlossy = isScrolled || isMenuOpen;
+
+  useEffect(() => {
+    let ticking = false;
+    const update = () => {
+      const scrolled = window.scrollY > 8;
+      setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const navItems = [
     { name: 'Home', href: '/' },
@@ -18,9 +38,9 @@ const Navigation: React.FC = () => {
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 bg-transparent">
-      <div className="px-4">
-        <div className="mx-auto max-w-2xl mt-4 rounded-2xl glass-strong border border-white/20 shadow-md">
-          <div className="flex items-center justify-between h-12 px-4">
+      <div className="px-4 md:px-6">
+        <div className={`mx-auto max-w-6xl mt-4 rounded-2xl transition-colors duration-300 ${(isScrolled || isMenuOpen) ? 'glass border border-white/20 shadow' : ''}`}>
+          <div className="flex items-center justify-between px-4 md:px-5 py-2 md:py-3">
             {/* Left: Logo */}
             <div className="flex items-center">
               <Link href="/" className="inline-flex items-center gap-2">
@@ -31,17 +51,21 @@ const Navigation: React.FC = () => {
             </div>
 
             {/* Center: Links */}
-            <div className="hidden md:flex items-center gap-5">
-              {navItems.map((item) => {
+            <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => {
                 const isActive = pathname === item.href;
-                const base = 'text-base font-medium transition-all duration-200';
-                const idle = 'px-0 py-0 text-dark-primary/80 hover:text-dark-primary';
-                const active = 'px-3 py-2 rounded-xl text-dark-primary glass border border-white/30 hover:shadow-md';
+                const base = 'text-base font-medium transition-colors duration-200 px-2.5 py-1.5 rounded-xl border';
+                const idle = 'text-dark-primary/80 hover:text-dark-primary border-transparent';
+                const active = isGlossy
+                  ? 'text-dark-primary font-semibold glass-strong border-white/40 ring-1 ring-primary-500/50 shadow-md'
+                  : 'text-dark-primary font-semibold border-transparent';
                 return (
                   <Link
                     key={item.name}
                     href={item.href}
+                    prefetch
                     className={`${base} ${isActive ? active : idle}`}
+                    aria-current={isActive ? 'page' : undefined}
                   >
                     {item.name}
                   </Link>
@@ -53,7 +77,8 @@ const Navigation: React.FC = () => {
             <div className="hidden md:flex items-center">
               <Link
                 href="/events"
-                className="text-base px-5 py-2 rounded-xl font-semibold text-white bg-primary-600/80 hover:bg-primary-600/90 backdrop-blur-md border border-primary-500/40 shadow-sm transition-all"
+                prefetch
+                className="text-base px-4 py-2 rounded-xl font-semibold text-white bg-primary-600/80 hover:bg-primary-600/90 backdrop-blur-md border border-primary-500/40 shadow-sm transition-all"
               >
                 Join Us
               </Link>
@@ -95,18 +120,23 @@ const Navigation: React.FC = () => {
 
       {/* Mobile menu */}
       <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden px-4`}>
-        <div className="mx-auto max-w-4xl mt-2 rounded-2xl glass-strong border border-white/20">
+        <div className={`mx-auto max-w-4xl mt-2 rounded-2xl transition-colors duration-300 ${isMenuOpen ? 'glass border border-white/20' : ''}`}>
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`block text-base font-medium rounded-xl transition-all duration-200 ${pathname === item.href ? 'px-3 py-2 text-dark-primary glass border border-white/30' : 'px-0 py-2 text-dark-primary/80 hover:text-dark-primary'}`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  prefetch
+                  className={`block text-base font-medium rounded-xl transition-colors duration-200 ${isActive ? (isGlossy ? 'px-3 py-2 text-dark-primary font-semibold glass-strong border border-white/40 ring-1 ring-primary-500/50 shadow-md' : 'px-3 py-2 text-dark-primary font-semibold') : 'px-0 py-2 text-dark-primary/80 hover:text-dark-primary'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
             <div className="pt-4 pb-2 px-3">
               <Link
                 href="/events"
