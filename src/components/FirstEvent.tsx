@@ -3,9 +3,9 @@ import React from 'react';
 const FirstEvent: React.FC = () => {
   const eventDetails = {
     title: "TiranaJS Community Launch Event",
-    date: "March 15, 2024",
-    time: "18:30",
-    location: "Innovation Hub Tirana",
+    date: "October 2024",
+    time: "TBD",
+    location: "TBD",
     description: "Join us for the inaugural event of TiranaJS! We're launching Tirana's newest JavaScript community with an evening of networking, lightning talks, and exciting discussions about the future of web development in our city.",
     highlights: [
       "Meet fellow JavaScript enthusiasts",
@@ -34,88 +34,141 @@ const FirstEvent: React.FC = () => {
         </div>
 
         {/* Event Card */}
-        <div className="max-w-4xl mx-auto">
-          <div className="card overflow-hidden shadow-2xl">
-            {/* Event Header */}
-            <div className="bg-primary-600 p-8 text-white">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                <div className="mb-4 md:mb-0">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2">
-                    {eventDetails.title}
-                  </h3>
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-white/90">
-                    <div className="flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a4 4 0 118 0v4m-9 4h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2z" />
-                      </svg>
-                      {eventDetails.date} • {eventDetails.time}
-                    </div>
-                    <div className="flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      {eventDetails.location}
+        <div className="max-w-5xl mx-auto">
+          <div className="relative group">
+            {/* Glassmorphism Card */}
+            <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden transition-all duration-500 hover:shadow-3xl hover:scale-[1.02]">
+              {/* Gradient Background Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 via-white/30 to-accent-lavender/30 pointer-events-none"></div>
+              
+              {/* Event Header */}
+              <div className="relative bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 p-8 md:p-10 text-white overflow-hidden">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                    <div className="flex-1">
+                      <h3 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+                        {eventDetails.title}
+                      </h3>
+                      
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-6 text-white/90">
+                        <div className="flex items-center group/item">
+                          <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mr-3 group-hover/item:bg-white/30 transition-colors duration-200">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a4 4 0 118 0v4m-9 4h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <div className="text-sm text-white/70">Date & Time</div>
+                            <div className="font-semibold">{eventDetails.date} • {eventDetails.time}</div>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center group/item">
+                          <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mr-3 group-hover/item:bg-white/30 transition-colors duration-200">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <div className="text-sm text-white/70">Location</div>
+                            <div className="font-semibold">{eventDetails.location}</div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center group/item">
+                          <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mr-3 group-hover/item:bg-white/30 transition-colors duration-200">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                            </svg>
+                          </div>
+                          <div>
+                            <div className="text-sm text-white/70">Admission</div>
+                            <div className="font-semibold">Free Event</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-white/80 text-sm mb-1">Free Event</div>
-                  <div className="text-2xl font-bold">🎉</div>
-                </div>
               </div>
-            </div>
 
-            {/* Event Content */}
-            <div className="p-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Description */}
-                <div>
-                  <h4 className="text-lg font-semibold text-dark-primary mb-4">About This Event</h4>
-                  <p className="text-dark-secondary leading-relaxed mb-6">
-                    {eventDetails.description}
-                  </p>
-                  
-                  {/* CTA Button */}
-                  <a
-                    href={eventDetails.lumaLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary inline-flex items-center"
-                  >
-                    Reserve Your Spot
-                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </div>
-
-                {/* Event Highlights */}
-                <div>
-                  <h4 className="text-lg font-semibold text-dark-primary mb-4">What to Expect</h4>
-                  <ul className="space-y-3">
-                    {eventDetails.highlights.map((highlight, index) => (
-                      <li key={index} className="flex items-start">
-                        <div className="flex-shrink-0 w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                          <svg className="w-3 h-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              {/* Event Content */}
+              <div className="relative p-8 md:p-10">
+                <div className="grid lg:grid-cols-2 gap-10">
+                  {/* Description */}
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-xl font-bold text-dark-primary mb-4 flex items-center">
+                        <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mr-3">
+                          <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </div>
-                        <span className="text-dark-secondary">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
+                        About This Event
+                      </h4>
+                      <p className="text-dark-secondary leading-relaxed text-lg">
+                        {eventDetails.description}
+                      </p>
+                    </div>
+                    
+                    {/* CTA Button */}
+                    <div className="pt-4">
+                      <div className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-400 to-gray-500 text-white font-semibold rounded-2xl shadow-lg cursor-not-allowed opacity-75">
+                        <span className="relative z-10">Registration Coming Soon</span>
+                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <p className="text-sm text-dark-secondary mt-2">
+                        Registration will open closer to the event date
+                      </p>
+                    </div>
+                  </div>
 
-                  {/* Community Note */}
-                  <div className="mt-6 p-4 bg-primary-50 rounded-lg">
-                    <div className="flex items-start">
-                      <div className="text-2xl mr-3">💭</div>
-                      <div>
-                        <h5 className="font-medium text-dark-primary mb-1">New Community</h5>
-                        <p className="text-sm text-dark-secondary">
-                          As a brand new community, this is our chance to shape TiranaJS together. 
-                          Your ideas and feedback will help define our future events!
-                        </p>
+                  {/* Event Highlights */}
+                  <div className="space-y-6">
+                    <h4 className="text-xl font-bold text-dark-primary mb-4 flex items-center">
+                      <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      What to Expect
+                    </h4>
+                    
+                    <ul className="space-y-4">
+                      {eventDetails.highlights.map((highlight, index) => (
+                        <li key={index} className="flex items-start group">
+                          <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl flex items-center justify-center mr-4 mt-0.5 group-hover:scale-110 transition-transform duration-200">
+                            <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <span className="text-dark-secondary text-lg leading-relaxed">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Community Note */}
+                    <div className="mt-8 p-6 bg-gradient-to-br from-primary-50 to-accent-lavender/30 rounded-2xl border border-primary-100/50">
+                      <div className="flex items-start">
+                        <div className="w-12 h-12 bg-gradient-to-br from-primary-200 to-primary-300 rounded-2xl flex items-center justify-center mr-4">
+                          <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h5 className="font-bold text-dark-primary mb-2 text-lg">New Community</h5>
+                          <p className="text-dark-secondary leading-relaxed">
+                            As a brand new community, this is our chance to shape TiranaJS together. 
+                            Your ideas and feedback will help define our future events!
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>

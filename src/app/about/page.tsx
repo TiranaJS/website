@@ -1,10 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import Logo from '@/components/Logo';
 import Image, { type StaticImageData } from 'next/image';
-import fabionPhoto from '@/assets/members/fabio.jpeg';
-import renatoPhoto from '@/assets/members/renato.jpeg';
-import mateoPhoto from '@/assets/members/mateo.png';
+import fabionPhoto from 'public/assets/members/fabio.jpeg';
+import renatoPhoto from 'public/assets/members/renato.jpeg';
+import mateoPhoto from 'public/assets/members/mateo.png';
 
 type TeamMember = {
   name: string;

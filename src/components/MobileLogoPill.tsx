@@ -17,14 +17,14 @@ const MobileLogoPill: React.FC<MobileLogoPillProps> = ({ className = '' }) => {
     >
       <div className="mobile-logo-pill glass-strong border border-white/30 shadow-lg flex items-center gap-2 px-3 py-2 rounded-full">
         <div className="relative w-7 h-7">
-          <Image
-            src="/assets/svgs/tiranajs.svg"
-            alt="TiranaJS"
-            fill
-            sizes="28px"
-            className="object-contain drop-shadow-sm"
-            priority
-          />
+        <Image 
+              src="/assets/svgs/tiranajs.png" 
+              alt="TiranaJS Logo"
+              width={3580}
+              height={3311}
+              className="w-full h-full object-contain"
+              priority
+            />
         </div>
         <span className="text-[13px] font-semibold text-dark-primary/90">TiranaJS</span>
       </div>

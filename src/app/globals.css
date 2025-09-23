@@ -13,6 +13,38 @@
     @apply bg-primary-50 text-dark-primary;
     min-height: 100vh;
   }
+  
+  /* SVG rendering optimizations for crisp display on all devices */
+  svg {
+    shape-rendering: geometricPrecision;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-image-rendering: crisp-edges;
+  }
+  
+  img[src$=".svg"] {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-image-rendering: crisp-edges;
+    image-rendering: pixelated;
+  }
+  
+  /* High-DPI display optimizations */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    svg, img[src$=".svg"] {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      -webkit-image-rendering: crisp-edges;
+      shape-rendering: geometricPrecision;
+    }
+  }
+  
+  /* Force hardware acceleration for SVG rendering */
+  svg {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
 }
 
 @layer components {

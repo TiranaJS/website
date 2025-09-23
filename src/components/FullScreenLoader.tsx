@@ -75,7 +75,7 @@ const FullScreenLoader: React.FC = () => {
           >
             <img
               ref={logoImageRef}
-              src="/assets/svgs/tiranajs.svg"
+              src="/assets/svgs/tiranajs.png"
               alt="TiranaJS emblem"
               className="h-full w-auto object-contain"
             />
