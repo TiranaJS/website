@@ -12,41 +12,41 @@ const FullScreenLoader: React.FC = () => {
   useEffect(() => {
     const tl = gsap.timeline();
 
-    // Initial setup - hide elements
-    gsap.set([logoTextRef.current, logoEmblemRef.current, logoImageRef.current], {
-      opacity: 0
+    // Initial setup - hide normal logo, show TiranaJS logo
+    gsap.set(logoTextRef.current, { 
+      opacity: 0,
+      x: 0, // Start at center position
+      scale: 0.8
     });
-    gsap.set(logoTextRef.current, { x: 40, scale: 0.8 });
-    gsap.set(logoEmblemRef.current, { scale: 0.8 });
-
-    // Animation sequence - both logos appear together
-    tl.to(logoImageRef.current, {
+    gsap.set(logoImageRef.current, { 
       opacity: 1,
-      duration: 0.6,
-      ease: 'easeOut',
-      delay: 0.2
-    })
-    .to(logoEmblemRef.current, {
+      scale: 1
+    });
+
+    // Animation sequence over 2 seconds
+    tl
+    // First: Show TiranaJS logo for 0.8 seconds
+    .to(logoImageRef.current, {
       opacity: 1,
       scale: 1,
-      duration: 0.8,
+      duration: 0.4,
       ease: 'easeOut'
-    }, 0.2)
+    })
+    // Then: Normal logo comes out from center and moves left, TiranaJS logo moves right
     .to(logoTextRef.current, {
       opacity: 1,
-      x: 0,
+      x: -60, // Move left so text appears under TiranaJS logo (more centered)
       scale: 1,
       duration: 1.0,
       ease: 'easeOut'
-    }, 0.4)
-    .to(logoEmblemRef.current, {
-      scale: 1.05,
-      duration: 1.2,
-      ease: 'easeInOut',
-      repeat: -1,
-      yoyo: true,
-      repeatDelay: 0.3
-    }, 1.0);
+    }, 0.8) // Start after 0.8 seconds
+    .to(logoImageRef.current, {
+      x: 120, // Move TiranaJS logo much more to the right
+      opacity: 1, // Keep fully visible
+      scale: 1, // Keep original size, no zoom
+      duration: 1.0,
+      ease: 'easeOut'
+    }, 0.8); // Start at the same time as normal logo
 
     return () => {
       tl.kill();
@@ -55,31 +55,29 @@ const FullScreenLoader: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white">
-      <div className="relative w-full max-w-3xl h-40 flex items-center justify-center px-6" aria-label="Loading TiranaJS" role="status">
-        <div className="flex items-center justify-center gap-3 md:gap-6 lg:gap-8">
-          {/* Stage 2 target position (left): Full logo with text */}
-          <div
-            ref={logoTextRef}
-            className="text-logo-primary"
-          >
-            <div className="scale-95 md:scale-100">
-              <Logo size="lg" textSize="lg" showText={true} />
-            </div>
+      <div className="relative w-full max-w-6xl h-40 flex items-center justify-center px-4 sm:px-6" aria-label="Loading TiranaJS" role="status">
+        {/* Normal logo - starts at center, moves left (behind TiranaJS) */}
+        <div
+          ref={logoTextRef}
+          className="text-logo-primary absolute flex items-center justify-center z-10"
+        >
+          <div className="scale-90 sm:scale-95 md:scale-100">
+            <Logo size="lg" textSize="lg" showText={true} />
           </div>
+        </div>
 
-          {/* Stage 1: TiranaJS emblem (right) using original glossy SVG with subtle pulse */}
-          <div
-            ref={logoEmblemRef}
-            className="h-20 sm:h-24 md:h-28 w-auto"
-            style={{ willChange: 'transform' }}
-          >
-            <img
-              ref={logoImageRef}
-              src="/assets/svgs/tiranajs.png"
-              alt="TiranaJS emblem"
-              className="h-full w-auto object-contain"
-            />
-          </div>
+        {/* TiranaJS logo - starts at center, moves right (on top) */}
+        <div
+          ref={logoEmblemRef}
+          className="absolute h-24 sm:h-28 md:h-32 lg:h-36 w-auto flex items-center justify-center z-20"
+          style={{ willChange: 'transform' }}
+        >
+          <img
+            ref={logoImageRef}
+            src="/assets/svgs/tiranajs.png"
+            alt="TiranaJS emblem"
+            className="h-full w-auto object-contain"
+          />
         </div>
       </div>
     </div>

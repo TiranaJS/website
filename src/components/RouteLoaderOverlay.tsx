@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import FullScreenLoader from '@/components/FullScreenLoader';
 
-const MIN_VISIBLE_MS = 1750; // Duration for the entrance animation
+const MIN_VISIBLE_MS = 2000; // Duration for the entrance animation (2 seconds)
 
 const RouteLoaderOverlay: React.FC = () => {
   const [visible, setVisible] = useState<boolean>(false); // Start hidden to prevent hydration mismatch
