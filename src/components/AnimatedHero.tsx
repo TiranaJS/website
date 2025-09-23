@@ -1,27 +1,102 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const AnimatedHero: React.FC = () => {
-  const { scrollYProgress } = useScroll();
+  const backgroundLogoRef = useRef<HTMLDivElement>(null);
+  const firstSvgRef = useRef<HTMLDivElement>(null);
+  const secondSvgRef = useRef<HTMLDivElement>(null);
+  const metadataRef = useRef<HTMLDivElement>(null);
 
-  const logoScale = useTransform(scrollYProgress, [0, 0.1, 0.3], [1.25, 3.75, 12.5]);
-  const logoX = useTransform(scrollYProgress, [0, 0.1, 0.3], [0, -200, -600]);
-  const logoY = useTransform(scrollYProgress, [0, 0.1, 0.3], [0, -100, -300]);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
-  const firstSvgOpacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 0.5, 0]);
-  const secondSvgOpacity = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [0, 0.5, 1]);
-  const metadataOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 1]);
+    // Background logo animation
+    if (backgroundLogoRef.current) {
+      gsap.fromTo(backgroundLogoRef.current, 
+        { scale: 1.25, x: 0, y: 0 },
+        {
+          scale: 12.5,
+          x: -600,
+          y: -300,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: backgroundLogoRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1
+          }
+        }
+      );
+    }
+
+    // First SVG opacity animation
+    if (firstSvgRef.current) {
+      gsap.fromTo(firstSvgRef.current,
+        { opacity: 1 },
+        {
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: firstSvgRef.current,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: 1
+          }
+        }
+      );
+    }
+
+    // Second SVG opacity animation
+    if (secondSvgRef.current) {
+      gsap.fromTo(secondSvgRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: secondSvgRef.current,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: 1
+          }
+        }
+      );
+    }
+
+    // Metadata opacity animation
+    if (metadataRef.current) {
+      gsap.fromTo(metadataRef.current,
+        { opacity: 1 },
+        {
+          opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: metadataRef.current,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: 1
+          }
+        }
+      );
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   return (
     <section className="relative min-h-[120vh] flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Background animated logo for small screens */}
-      <motion.div
+      <div
+        ref={backgroundLogoRef}
         className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center lg:hidden"
-        style={{ scale: logoScale, x: logoX, y: logoY }}
+        style={{ transform: 'scale(1.25) translateX(0px) translateY(0px)' }}
       >
         <div className="w-[22rem] h-[18rem] sm:w-[26rem] sm:h-[22rem] opacity-25">
           <Image 
@@ -33,15 +108,15 @@ const AnimatedHero: React.FC = () => {
             priority
           />
         </div>
-      </motion.div>
+      </div>
 
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
           {/* Metadata Section */}
-          <motion.div 
+          <div 
+            ref={metadataRef}
             className="flex-1 text-center lg:text-left space-y-8 relative z-10"
-            style={{ opacity: metadataOpacity }}
           >
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-dark-primary leading-tight">
@@ -65,16 +140,16 @@ const AnimatedHero: React.FC = () => {
                 Learn More
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* TiranaJS Logo Section with Morphing Animation */}
-          <motion.div 
+          <div 
             className="hidden lg:block flex-shrink-0 relative z-50"
-            style={{ scale: logoScale, x: logoX, y: logoY }}
+            style={{ transform: 'scale(1.25) translateX(0px) translateY(0px)' }}
           >
             <div className="w-[30rem] h-[25rem] lg:w-[35rem] lg:h-[30rem] relative">
               {/* First SVG - TiranaJS Logo */}
-              <motion.div className="absolute inset-0" style={{ opacity: firstSvgOpacity }}>
+              <div ref={firstSvgRef} className="absolute inset-0">
                 <Image 
                   src="/assets/svgs/tiranajs.svg" 
                   alt="TiranaJS Logo"
@@ -83,9 +158,9 @@ const AnimatedHero: React.FC = () => {
                   className="w-full h-full object-contain"
                   priority
                 />
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Scroll Indicator */}

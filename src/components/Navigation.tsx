@@ -66,6 +66,10 @@ const Navigation: React.FC = () => {
                     prefetch
                     className={`${base} ${isActive ? active : idle}`}
                     aria-current={isActive ? 'page' : undefined}
+                    onClick={() => {
+                      // Set global flag to prevent loader on navigation
+                      (window as any).__NAVIGATION_CLICKED__ = true;
+                    }}
                   >
                     {item.name}
                   </Link>
@@ -130,7 +134,11 @@ const Navigation: React.FC = () => {
                   href={item.href}
                   prefetch
                   className={`block text-base font-medium rounded-xl transition-colors duration-200 ${isActive ? (isGlossy ? 'px-3 py-2 text-dark-primary font-semibold glass-strong border border-white/40 ring-1 ring-primary-500/50 shadow-md' : 'px-3 py-2 text-dark-primary font-semibold') : 'px-0 py-2 text-dark-primary/80 hover:text-dark-primary'}`}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    // Set global flag to prevent loader on navigation
+                    (window as any).__NAVIGATION_CLICKED__ = true;
+                  }}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   {item.name}

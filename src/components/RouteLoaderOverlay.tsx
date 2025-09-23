@@ -1,14 +1,16 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { gsap } from 'gsap';
 import FullScreenLoader from '@/components/FullScreenLoader';
 
-const MIN_VISIBLE_MS = 1700; // +500ms to accommodate extended intro animation
+const MIN_VISIBLE_MS = 1750; // Duration for the entrance animation
 
 const RouteLoaderOverlay: React.FC = () => {
-  const [visible, setVisible] = useState<boolean>(true); // show only on initial mount
-  const showStartedAtRef = useRef<number | null>(Date.now());
+  const [visible, setVisible] = useState<boolean>(false); // Start hidden to prevent hydration mismatch
+  const [mounted, setMounted] = useState<boolean>(false); // Start unmounted
+  const [hasShown, setHasShown] = useState<boolean>(false); // Track if loader has been shown
+  const showStartedAtRef = useRef<number | null>(null);
   const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const hideWithMinDuration = useCallback(() => {
@@ -17,16 +19,78 @@ const RouteLoaderOverlay: React.FC = () => {
     const remaining = Math.max(0, MIN_VISIBLE_MS - elapsed);
     if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
     hideTimerRef.current = setTimeout(() => {
-      setVisible(false);
-      showStartedAtRef.current = null;
+      // Add fade out animation before hiding
+      const loaderElement = document.querySelector('[data-loader="true"]');
+      const mainContent = document.getElementById('main-content');
+      
+      if (loaderElement) {
+        gsap.to(loaderElement, {
+          opacity: 0,
+          duration: 0.3,
+          ease: 'easeInOut',
+          onComplete: () => {
+            setVisible(false);
+            showStartedAtRef.current = null;
+            // Show main content after loader is hidden
+            if (mainContent) {
+              gsap.to(mainContent, {
+                opacity: 1,
+                duration: 0.3,
+                ease: 'easeInOut'
+              });
+            }
+          }
+        });
+      } else {
+        setVisible(false);
+        showStartedAtRef.current = null;
+        // Show main content after loader is hidden
+        if (mainContent) {
+          gsap.to(mainContent, {
+            opacity: 1,
+            duration: 0.3,
+            ease: 'easeInOut'
+          });
+        }
+      }
     }, remaining);
   }, []);
 
-  // Initial mount: hide after minimum duration
+  // Show loader on every page load/refresh
   useEffect(() => {
-    hideWithMinDuration();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    // Ensure we're on the client side
+    if (typeof window === 'undefined') return;
+    
+    // Prevent showing loader twice
+    if (hasShown) return;
+    
+    // Check if this is a navigation click (not a page refresh)
+    const isNavigationClick = (window as any).__NAVIGATION_CLICKED__;
+    
+    if (isNavigationClick) {
+      // If it's navigation, hide loader immediately and show content
+      setVisible(false);
+      setMounted(true);
+      const mainContent = document.getElementById('main-content');
+      if (mainContent) {
+        gsap.to(mainContent, {
+          opacity: 1,
+          duration: 0.3,
+          ease: 'easeInOut'
+        });
+      }
+    } else {
+      // If it's page load/refresh, show loader
+      setMounted(true);
+      setVisible(true);
+      setHasShown(true);
+      showStartedAtRef.current = Date.now();
+      hideWithMinDuration();
+    }
+    
+    // Reset the flag for next time
+    (window as any).__NAVIGATION_CLICKED__ = false;
+  }, [hideWithMinDuration, hasShown]);
 
   useEffect(() => {
     return () => {
@@ -34,21 +98,25 @@ const RouteLoaderOverlay: React.FC = () => {
     };
   }, []);
 
+  // Don't render anything on server side or if not mounted
+  if (!mounted) {
+    return null;
+  }
+
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          key="route-loader"
-          className="fixed inset-0 z-[100]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
+    <>
+      {mounted && visible && (
+        <div
+          data-loader="true"
+          className="fixed inset-0 z-[100] opacity-0 animate-fade-in"
+          style={{
+            animation: 'fadeIn 0.25s ease-out forwards'
+          }}
         >
           <FullScreenLoader />
-        </motion.div>
+        </div>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 

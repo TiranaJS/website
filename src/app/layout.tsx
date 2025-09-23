@@ -41,12 +41,14 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="min-h-screen bg-white">
         <RouteLoaderOverlay />
-        <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <MobileLogoPill />
-        <Footer />
+        <div id="main-content" className="opacity-0 bg-white">
+          <Navigation />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <MobileLogoPill />
+          <Footer />
+        </div>
       </body>
     </html>
   );
