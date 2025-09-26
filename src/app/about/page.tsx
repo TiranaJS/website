@@ -9,49 +9,36 @@ type TeamMember = {
   name: string;
   role: string;
   bio: string;
-  expertise: string[];
   linkedin: string;
   twitter?: string;
   github?: string;
   dribbble?: string;
   imageSrc?: StaticImageData | string;
-  responsibilities?: string[];
 };
 
 export default function AboutPage() {
   const teamMembers: TeamMember[] = [
     {
       name: "Renato Selenica",
-      role: "Organizer",
-      bio: "Software engineer and community organizer supporting TiranaJS operations and growth. Focused on running smooth events and creating value for members.",
-      expertise: ["JavaScript", "Nodejs", "Community"],
+      role: "Software Engineer & Tech Enthusiast",
+      bio: "Loves to overengineer for no apparent reason. Striving to figure out how fast Nodejs can be. Building a community that cherishes collaboration and connects developers who want to talk about tech.",
       linkedin:
         "https://www.linkedin.com/in/renatoselenica?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
       imageSrc: renatoPhoto,
-      responsibilities: [
-        "Venue coordination",
-        "Sponsor relations",
-        "Event logistics",
-      ],
     },
     {
       name: "Mateo Kurti",
       role: "Software Engineer & Community Builder",
       bio: "Software engineer who believes the best code is written in collaboration. Co-founded this community to create a space where developers in Albania can grow, share, and build without ego. Focused on making our local tech scene as vibrant as our coffee culture.",
-      expertise: [],
       linkedin: "https://www.linkedin.com/in/mateokurti",
       imageSrc: mateoPhoto,
-      responsibilities: [],
     },
     {
       name: "Fabion Rabushja",
       role: "Frontend Tech Lead & Community Energy Supply",
       bio: "Frontend enthusiast and self-proclaimed last Angular developer in 2025. Co-founded this community with friends to keep Angular alive and create a space for all frontend lovers in Albania. Dedicated to building connections, sharing knowledge, and keeping the React crowd entertained with some friendly debates.",
-      expertise: [],
-      linkedin:
-        "https://www.linkedin.com/in/fabion-rabushja",
+      linkedin: "https://www.linkedin.com/in/fabion-rabushja",
       imageSrc: fabionPhoto,
-      responsibilities: [],
     },
   ];
 
@@ -320,62 +307,38 @@ export default function AboutPage() {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="card w-full max-w-sm mx-auto text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="card w-full flex flex-col justify-between justify-items-between max-w-sm mx-auto text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 {/* Avatar */}
-                {member.imageSrc ? (
-                  <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4">
-                    <Image
-                      src={member.imageSrc}
-                      alt={`${member.name} photo`}
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div className="w-24 h-24 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl">
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
-                )}
-
-                <h3 className="text-lg font-semibold text-dark-primary mb-1">
-                  {member.name}
-                </h3>
-                <div className="text-primary-600 font-medium text-sm mb-3">
-                  {member.role}
-                </div>
-                <p className="text-dark-secondary text-sm leading-relaxed mb-4">
-                  {member.bio}
-                </p>
-
-                {member.responsibilities &&
-                  member.responsibilities.length > 0 && (
-                    <div className="flex flex-wrap justify-center gap-2 mb-4">
-                      {member.responsibilities.map((item, itemIndex) => (
-                        <span
-                          key={itemIndex}
-                          className="px-2 py-1 bg-primary-50 text-primary-700 text-xs font-medium rounded-full border border-primary-100"
-                        >
-                          {item}
-                        </span>
-                      ))}
+                <div>
+                  {member.imageSrc ? (
+                    <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4">
+                      <Image
+                        src={member.imageSrc}
+                        alt={`${member.name} photo`}
+                        width={96}
+                        height={96}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-24 h-24 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl">
+                      {member.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
                     </div>
                   )}
 
-                {/* Expertise tags */}
-                <div className="flex flex-wrap justify-center gap-2 mb-4">
-                  {member.expertise.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded-full"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  <h3 className="text-lg font-semibold text-dark-primary mb-1">
+                    {member.name}
+                  </h3>
+                  <div className="text-primary-600 font-medium text-sm mb-3">
+                    {member.role}
+                  </div>
+                  <p className="text-dark-secondary text-sm leading-relaxed mb-4">
+                    {member.bio}
+                  </p>
                 </div>
 
                 {/* Social links */}
@@ -464,7 +427,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/events" className="btn-primary">
-              Attend Next Event
+              Join Next Event
             </Link>
             <Link href="/contact" className="btn-secondary">
               Get in Touch
