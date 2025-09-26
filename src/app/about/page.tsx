@@ -22,8 +22,7 @@ export default function AboutPage() {
       name: "Renato Selenica",
       role: "Software Engineer & Tech Enthusiast",
       bio: "Loves to overengineer for no apparent reason. Striving to figure out how fast Nodejs can be. Building a community that cherishes collaboration and connects developers who want to talk about tech.",
-      linkedin:
-        "https://www.linkedin.com/in/renatoselenica?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      linkedin: "https://www.linkedin.com/in/renatoselenica",
       imageSrc: renatoPhoto,
     },
     {
