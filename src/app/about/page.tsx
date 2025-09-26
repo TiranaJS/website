@@ -50,17 +50,13 @@ export default function AboutPage() {
     },
     {
       name: "Fabion Rabushja",
-      role: "Frontend Team Lead & Organizer",
-      bio: "Frontend Team Lead at Nexum-ai and cloud enthusiast. Google Associate Cloud Engineer certified. Passionate about building community and sharing practical JavaScript knowledge.",
-      expertise: ["React", "TypeScript", "Performance", "Cloud"],
+      role: "Frontend Tech Lead | Community Energy Supply",
+      bio: "Supposedly, I’m the last Angular dev still roaming free in 2025. Got together with my friends to build this community mostly to distract the React crowd from turning Albania into JSX-land. Currently specializing in frontend diplomacy, spicy framework debates.",
+      expertise: ["Angular", "React", "TypeScript", "Performance", "Leadership"],
       linkedin:
-        "https://www.linkedin.com/in/fabion-rabushja?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        "https://www.linkedin.com/in/fabion-rabushja",
       imageSrc: fabionPhoto,
-      responsibilities: [
-        "Program content",
-        "Lead frontend workshops",
-        "Community partnerships",
-      ],
+      responsibilities: [],
     },
   ];
 
