@@ -45,9 +45,9 @@ export default function AboutPage() {
     },
     {
       name: "Fabion Rabushja",
-      role: "Frontend Tech Lead | Community Energy Supply",
-      bio: "Supposedly, I’m the last Angular dev still roaming free in 2025. Got together with my friends to build this community mostly to distract the React crowd from turning Albania into JSX-land. Currently specializing in frontend diplomacy, spicy framework debates.",
-      expertise: ["Angular", "React", "TypeScript", "Performance", "Leadership"],
+      role: "Frontend Tech Lead & Community Energy Supply",
+      bio: "Frontend enthusiast and self-proclaimed last Angular developer in 2025. Co-founded this community with friends to keep Angular alive and create a space for all frontend lovers in Albania. Dedicated to building connections, sharing knowledge, and keeping the React crowd entertained with some friendly debates.",
+      expertise: [],
       linkedin:
         "https://www.linkedin.com/in/fabion-rabushja",
       imageSrc: fabionPhoto,
