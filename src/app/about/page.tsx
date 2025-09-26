@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image, { type StaticImageData } from "next/image";
 import fabionPhoto from "public/assets/members/fabio.jpeg";
 import renatoPhoto from "public/assets/members/renato.jpeg";
-import mateoPhoto from "public/assets/members/mateo.png";
+import mateoPhoto from "public/assets/members/mateo.jpg";
 
 type TeamMember = {
   name: string;
@@ -36,17 +36,12 @@ export default function AboutPage() {
     },
     {
       name: "Mateo Kurti",
-      role: "Organizer",
-      bio: "Developer and event organizer focused on JavaScript education and mentorship. Helps grow the community through content and outreach.",
-      expertise: ["JavaScript", "React", "Community"],
-      linkedin:
-        "https://www.linkedin.com/in/mateokurti?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      role: "Software Engineer & Community Builder",
+      bio: "Software engineer who believes the best code is written in collaboration. Co-founded this community to create a space where developers in Albania can grow, share, and build without ego. Focused on making our local tech scene as vibrant as our coffee culture.",
+      expertise: [],
+      linkedin: "https://www.linkedin.com/in/mateokurti",
       imageSrc: mateoPhoto,
-      responsibilities: [
-        "Speaker outreach",
-        "Community growth",
-        "Social content",
-      ],
+      responsibilities: [],
     },
     {
       name: "Fabion Rabushja",
