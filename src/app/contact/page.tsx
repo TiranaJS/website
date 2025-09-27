@@ -28,7 +28,7 @@ export default function ContactPage() {
   const socialLinks = [
     {
       name: "Luma",
-      url: "https://lu.ma/user/tiranajs",
+      url: "https://lu.ma/tiranajs",
       icon: (
         <svg
           className="w-6 h-6"
