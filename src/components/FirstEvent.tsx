@@ -3,7 +3,7 @@ import React from 'react';
 const FirstEvent: React.FC = () => {
   const eventDetails = {
     title: "TiranaJS Community Launch Event",
-    date: "October 2024",
+    date: "October 2025",
     time: "TBD",
     location: "TBD",
     description: "Join us for the inaugural event of TiranaJS! We're launching Tirana's newest JavaScript community with an evening of networking, lightning talks, and exciting discussions about the future of web development in our city.",
