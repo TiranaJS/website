@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image, { type StaticImageData } from "next/image";
 import fabionPhoto from "public/assets/members/fabio.jpeg";
 import renatoPhoto from "public/assets/members/renato.jpeg";
-import mateoPhoto from "public/assets/members/mateo.jpg";
+import mateoPhoto from "public/assets/members/mateo.jpeg";
 
 type TeamMember = {
   name: string;
