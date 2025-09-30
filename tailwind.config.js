@@ -25,7 +25,7 @@ module.exports = {
           purple: '#a18cd1',  // Light purple for gradient
         },
         dark: {
-          primary: '#2d1b69',  // Dark indigo for text/backgrounds
+          primary: '#2F2853',  // Dark indigo for text/backgrounds
           secondary: '#3d2875', // Slightly lighter dark
         }
       },
