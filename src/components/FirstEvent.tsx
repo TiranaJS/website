@@ -3,10 +3,16 @@ import React from 'react';
 const FirstEvent: React.FC = () => {
   const eventDetails = {
     title: "TiranaJS Community Launch Event",
-    date: "October 2025",
-    time: "TBD",
-    location: "TBD",
+    date: "15 October 2025",
+    time: "18:30",
+    location: "One Connect Hub",
     description: "Join us for the inaugural event of TiranaJS! We're launching Tirana's newest JavaScript community with an evening of networking, lightning talks, and exciting discussions about the future of web development in our city.",
+    schedule: [
+      { time: "18:30", activity: "Doors Open, Drinks" },
+      { time: "19:00", activity: "Zero to One: Introducing TiranaJS" },
+      { time: "19:15", activity: "Meet Undici: Your New HTTP Friend - Renato Selenica" },
+      { time: "19:45", activity: "Networking, Food & Drinks 🌍🍕🍺" }
+    ],
     highlights: [
       "Meet fellow JavaScript enthusiasts",
       "Lightning talks from local developers", 
@@ -76,7 +82,17 @@ const FirstEvent: React.FC = () => {
                           </div>
                           <div>
                             <div className="text-sm text-white/70">Location</div>
-                            <div className="font-semibold">{eventDetails.location}</div>
+                            <a 
+                              href="https://maps.app.goo.gl/WD7tLMf8wYkZuYbm8"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-semibold hover:text-white transition-colors duration-200 flex items-center group/link"
+                            >
+                              {eventDetails.location}
+                              <svg className="w-4 h-4 ml-1 group-hover/link:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            </a>
                           </div>
                         </div>
 
@@ -111,9 +127,10 @@ const FirstEvent: React.FC = () => {
                         </div>
                         About This Event
                       </h4>
-                      <p className="text-dark-secondary leading-relaxed text-lg">
+                      <p className="text-dark-secondary leading-relaxed text-lg mb-6">
                         {eventDetails.description}
                       </p>
+                      
                     </div>
                     
                     {/* CTA Button */}
@@ -135,29 +152,29 @@ const FirstEvent: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Event Highlights */}
+                  {/* Event Schedule */}
                   <div className="space-y-6">
                     <h4 className="text-xl font-bold text-dark-primary mb-4 flex items-center">
                       <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center mr-3">
                         <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                       </div>
-                      What to Expect
+                      Event Schedule
                     </h4>
                     
-                    <ul className="space-y-4">
-                      {eventDetails.highlights.map((highlight, index) => (
-                        <li key={index} className="flex items-start group">
-                          <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl flex items-center justify-center mr-4 mt-0.5 group-hover:scale-110 transition-transform duration-200">
-                            <svg className="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
+                    <div className="space-y-3">
+                      {eventDetails.schedule.map((item, index) => (
+                        <div key={index} className="flex items-start">
+                          <div className="flex-shrink-0 w-16 text-sm font-semibold text-primary-600 mr-4 mt-1">
+                            {item.time}
                           </div>
-                          <span className="text-dark-secondary text-lg leading-relaxed">{highlight}</span>
-                        </li>
+                          <div className="flex-1 text-dark-secondary text-lg leading-relaxed">
+                            {item.activity}
+                          </div>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
 
                     {/* Community Note */}
                     <div className="mt-8 p-6 bg-gradient-to-br from-primary-50 to-accent-lavender/30 rounded-2xl border border-primary-100/50">
