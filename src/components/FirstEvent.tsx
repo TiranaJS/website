@@ -2,7 +2,7 @@ import React from 'react';
 
 const FirstEvent: React.FC = () => {
   const eventDetails = {
-    title: "TiranaJS Community Launch Event",
+    title: "TiranaJS Meetup #1: Community Launch",
     date: "15 October 2025",
     time: "18:30",
     location: "One Connect Hub",
@@ -43,7 +43,7 @@ const FirstEvent: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="relative group">
             {/* Glassmorphism Card */}
-            <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden transition-all duration-500 hover:shadow-3xl hover:scale-[1.02]">
+            <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden transition-all duration-500 hover:shadow-3xl hover:scale-[1.02]">
               {/* Gradient Background Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 via-white/30 to-accent-lavender/30 pointer-events-none"></div>
               
@@ -64,7 +64,8 @@ const FirstEvent: React.FC = () => {
                         <div className="flex items-center group/item">
                           <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mr-3 group-hover/item:bg-white/30 transition-colors duration-200">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a4 4 0 118 0v4m-9 4h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-16.5 0A2.25 2.25 0 005.25 21h13.5a2.25 2.25 0 002.25-2.25m-16.5 0v-7.5A2.25 2.25 0 015.25 9h13.5a2.25 2.25 0 012.25 2.25v7.5" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
                             </svg>
                           </div>
                           <div>
@@ -96,17 +97,6 @@ const FirstEvent: React.FC = () => {
                           </div>
                         </div>
 
-                        <div className="flex items-center group/item">
-                          <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mr-3 group-hover/item:bg-white/30 transition-colors duration-200">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                            </svg>
-                          </div>
-                          <div>
-                            <div className="text-sm text-white/70">Admission</div>
-                            <div className="font-semibold">Free Event</div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -133,23 +123,6 @@ const FirstEvent: React.FC = () => {
                       
                     </div>
                     
-                    {/* CTA Button */}
-                    <div className="pt-4">
-                      <a 
-                        href={eventDetails.lumaLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer"
-                      >
-                        <span className="relative z-10">Register Now</span>
-                        <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
-                      <p className="text-sm text-dark-secondary mt-2">
-                        Click to register on Luma
-                      </p>
-                    </div>
                   </div>
 
                   {/* Event Schedule */}
@@ -176,25 +149,46 @@ const FirstEvent: React.FC = () => {
                       ))}
                     </div>
 
-                    {/* Community Note */}
-                    <div className="mt-8 p-6 bg-gradient-to-br from-primary-50 to-accent-lavender/30 rounded-2xl border border-primary-100/50">
-                      <div className="flex items-start">
-                        <div className="w-12 h-12 bg-gradient-to-br from-primary-200 to-primary-300 rounded-2xl flex items-center justify-center mr-4">
-                          <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h5 className="font-bold text-dark-primary mb-2 text-lg">New Community</h5>
-                          <p className="text-dark-secondary leading-relaxed">
-                            As a brand new community, this is our chance to shape TiranaJS together. 
-                            Your ideas and feedback will help define our future events!
-                          </p>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
+
+                {/* Registration CTA - Bottom Center */}
+                <div className="px-8 md:px-10 pb-8 pt-6 text-center border-t border-primary-100/30">
+                  <a 
+                    href={eventDetails.lumaLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative inline-flex items-center px-8 sm:px-12 py-6 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
+                  >
+                    <span className="relative z-10">Register Now</span>
+                    <svg className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                  <p className="text-sm text-dark-secondary mt-4">
+                    Click to register on Luma
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* New Community Card */}
+        <div className="max-w-4xl mx-auto mt-12">
+          <div className="p-8 bg-gradient-to-br from-primary-50 to-accent-lavender/30 rounded-2xl border border-primary-100/50">
+            <div className="flex items-start">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-200 to-primary-300 rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                </svg>
+              </div>
+              <div>
+                <h5 className="font-bold text-dark-primary mb-3 text-2xl">New Community</h5>
+                <p className="text-dark-secondary leading-relaxed text-lg">
+                  As a brand new community, this is our chance to shape TiranaJS together. 
+                  Your ideas and feedback will help define our future events!
+                </p>
               </div>
             </div>
           </div>
