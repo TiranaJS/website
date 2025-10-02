@@ -13,7 +13,7 @@ const FirstEvent: React.FC = () => {
       "Community roadmap discussion",
       "Networking and refreshments"
     ],
-    lumaLink: "https://luma.com/event/evt-abc123" // Placeholder hardcoded link
+    lumaLink: "https://luma.com/v4jj6yzq"
   };
 
   return (
@@ -118,14 +118,19 @@ const FirstEvent: React.FC = () => {
                     
                     {/* CTA Button */}
                     <div className="pt-4">
-                      <div className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-400 to-gray-500 text-white font-semibold rounded-2xl shadow-lg cursor-not-allowed opacity-75">
-                        <span className="relative z-10">Registration Coming Soon</span>
-                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <a 
+                        href={eventDetails.lumaLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 cursor-pointer"
+                      >
+                        <span className="relative z-10">Register Now</span>
+                        <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                      </div>
+                      </a>
                       <p className="text-sm text-dark-secondary mt-2">
-                        Registration will open closer to the event date
+                        Click to register on Luma
                       </p>
                     </div>
                   </div>
