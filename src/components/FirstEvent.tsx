@@ -166,7 +166,7 @@ const FirstEvent: React.FC = () => {
                     <div className="space-y-3">
                       {eventDetails.schedule.map((item, index) => (
                         <div key={index} className="flex items-start">
-                          <div className="flex-shrink-0 w-16 text-sm font-semibold text-primary-600 mr-4 mt-1">
+                          <div className="flex-shrink-0 w-12 text-sm font-semibold text-primary-600 mt-1">
                             {item.time}
                           </div>
                           <div className="flex-1 text-dark-secondary text-lg leading-relaxed">
