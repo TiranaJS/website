@@ -114,7 +114,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-primary-800 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
+        <div className="border-t border-primary-300 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-primary-300 text-sm">
             © {currentYear} TiranaJS Community. All rights reserved.
           </p>

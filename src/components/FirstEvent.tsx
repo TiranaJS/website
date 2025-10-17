@@ -27,8 +27,8 @@ const FirstEvent: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-full text-sm font-medium mb-4">
-            🚀 Launching Soon
+          <div className="inline-flex items-center px-4 py-2 bg-gray-500 text-white rounded-full text-sm font-medium mb-4">
+            📅 Past Event
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-dark-primary mb-4">
             Our First Event
@@ -120,9 +120,7 @@ const FirstEvent: React.FC = () => {
                       <p className="text-dark-secondary leading-relaxed text-lg mb-6">
                         {eventDetails.description}
                       </p>
-                      
                     </div>
-                    
                   </div>
 
                   {/* Event Schedule */}
@@ -154,19 +152,14 @@ const FirstEvent: React.FC = () => {
 
                 {/* Registration CTA - Bottom Center */}
                 <div className="px-8 md:px-10 pb-8 pt-6 text-center border-t border-primary-100/30">
-                  <a 
-                    href={eventDetails.lumaLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative inline-flex items-center px-8 sm:px-12 py-6 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
-                  >
-                    <span className="relative z-10">Register Now</span>
-                    <svg className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  <div className="group relative inline-flex items-center px-8 sm:px-12 py-6 bg-gradient-to-r from-gray-400 to-gray-500 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-lg cursor-not-allowed opacity-75">
+                    <span className="relative z-10">Registration Closed</span>
+                    <svg className="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                  </a>
+                  </div>
                   <p className="text-sm text-dark-secondary mt-4">
-                    Click to register on Luma
+                    This event has concluded. Our next meetup will be announced soon!
                   </p>
                 </div>
               </div>
