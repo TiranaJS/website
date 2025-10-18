@@ -1,0 +1,86 @@
+{
+  "events": [
+    {
+      "id": "tiranajs-meetup-1",
+      "title": "TiranaJS Meetup #1: Community Launch",
+      "date": "2025-10-15",
+      "dateFormatted": "15 October 2025",
+      "time": "18:30",
+      "location": {
+        "name": "One Connect Hub",
+        "address": "Rruga Dervish Hima, Tirana, Albania",
+        "mapLink": "https://maps.app.goo.gl/WD7tLMf8wYkZuYbm8"
+      },
+      "description": "Join us for the inaugural event of TiranaJS! We're launching Tirana's newest JavaScript community with an evening of networking, lightning talks, and exciting discussions about the future of web development in our city.",
+      "status": "past",
+      "registrationOpen": false,
+      "registrationLink": "https://luma.com/v4jj6yzq",
+      "schedule": [
+        {
+          "time": "18:30",
+          "activity": "Doors Open, Drinks"
+        },
+        {
+          "time": "19:00",
+          "activity": "Zero to One: Introducing TiranaJS"
+        },
+        {
+          "time": "19:15",
+          "activity": "Meet Undici: Your New HTTP Friend - Renato Selenica"
+        },
+        {
+          "time": "19:45",
+          "activity": "Networking, Food & Drinks 🌍🍕🍺"
+        }
+      ],
+      "highlights": [
+        "Meet fellow JavaScript enthusiasts",
+        "Lightning talks from local developers",
+        "Community roadmap discussion",
+        "Networking and refreshments"
+      ],
+      "speakers": [
+        {
+          "name": "Renato Selenica",
+          "topic": "Meet Undici: Your New HTTP Friend"
+        }
+      ],
+      "tags": ["community", "networking", "lightning-talks"]
+    }
+  ],
+  "_comment": "To add a new event, copy the template below and add it to the 'events' array above. Make sure to update all fields with your event information.",
+  "_template": {
+    "id": "unique-event-id",
+    "title": "Event Title",
+    "date": "YYYY-MM-DD",
+    "dateFormatted": "DD Month YYYY",
+    "time": "HH:MM",
+    "location": {
+      "name": "Venue Name",
+      "address": "Full Address",
+      "mapLink": "https://maps.google.com/..."
+    },
+    "description": "Detailed event description...",
+    "status": "upcoming",
+    "registrationOpen": true,
+    "registrationLink": "https://...",
+    "schedule": [
+      {
+        "time": "HH:MM",
+        "activity": "Activity description"
+      }
+    ],
+    "highlights": [
+      "Highlight 1",
+      "Highlight 2"
+    ],
+    "speakers": [
+      {
+        "name": "Speaker Name",
+        "topic": "Talk Title"
+      }
+    ],
+    "tags": ["tag1", "tag2"]
+  }
+}
+

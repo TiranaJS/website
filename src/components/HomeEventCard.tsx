@@ -1,34 +1,49 @@
 import React from 'react';
+import { getEvents } from '@/utils/getEvents';
+import { EventsData } from '@/types/event';
 
-const FirstEvent: React.FC = () => {
-  const eventDetails = {
-    title: "TiranaJS Meetup #1: Community Launch",
-    date: "15 October 2025",
-    time: "18:30",
-    location: "One Connect Hub",
-    description: "Join us for the inaugural event of TiranaJS! We're launching Tirana's newest JavaScript community with an evening of networking, lightning talks, and exciting discussions about the future of web development in our city.",
-    schedule: [
-      { time: "18:30", activity: "Doors Open, Drinks" },
-      { time: "19:00", activity: "Zero to One: Introducing TiranaJS" },
-      { time: "19:15", activity: "Meet Undici: Your New HTTP Friend - Renato Selenica" },
-      { time: "19:45", activity: "Networking, Food & Drinks 🌍🍕🍺" }
-    ],
-    highlights: [
-      "Meet fellow JavaScript enthusiasts",
-      "Lightning talks from local developers", 
-      "Community roadmap discussion",
-      "Networking and refreshments"
-    ],
-    lumaLink: "https://luma.com/v4jj6yzq"
-  };
+const HomeEventCard: React.FC = async () => {
+  let eventData: EventsData;
+  
+  try {
+    eventData = await getEvents();
+  } catch (error) {
+    console.error('Error fetching events:', error);
+    return (
+      <section className="py-20 bg-gradient-to-br from-primary-50 to-primary-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-dark-secondary">Unable to load events. Please try again later.</p>
+        </div>
+      </section>
+    );
+  }
+
+  // Get the first event or the most recent event
+  const eventDetails = eventData.events[0];
+  
+  if (!eventDetails) {
+    return (
+      <section className="py-20 bg-gradient-to-br from-primary-50 to-primary-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-dark-secondary">No events available at this time.</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-20 bg-gradient-to-br from-primary-50 to-primary-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-4 py-2 bg-gray-500 text-white rounded-full text-sm font-medium mb-4">
-            📅 Past Event
+          <div className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-4 ${
+            eventDetails.status === 'upcoming' 
+              ? 'bg-green-500 text-white' 
+              : eventDetails.status === 'ongoing'
+              ? 'bg-blue-500 text-white'
+              : 'bg-gray-500 text-white'
+          }`}>
+            📅 {eventDetails.status === 'upcoming' ? 'Upcoming Event' : eventDetails.status === 'ongoing' ? 'Live Event' : 'Past Event'}
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-dark-primary mb-4">
             Our First Event
@@ -70,7 +85,7 @@ const FirstEvent: React.FC = () => {
                           </div>
                           <div>
                             <div className="text-sm text-white/70">Date & Time</div>
-                            <div className="font-semibold">{eventDetails.date} • {eventDetails.time}</div>
+                            <div className="font-semibold">{eventDetails.dateFormatted} • {eventDetails.time}</div>
                           </div>
                         </div>
                         
@@ -84,12 +99,12 @@ const FirstEvent: React.FC = () => {
                           <div>
                             <div className="text-sm text-white/70">Location</div>
                             <a 
-                              href="https://maps.app.goo.gl/WD7tLMf8wYkZuYbm8"
+                              href={eventDetails.location.mapLink}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="font-semibold hover:text-white transition-colors duration-200 flex items-center group/link"
                             >
-                              {eventDetails.location}
+                              {eventDetails.location.name}
                               <svg className="w-4 h-4 ml-1 group-hover/link:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                               </svg>
@@ -152,15 +167,38 @@ const FirstEvent: React.FC = () => {
 
                 {/* Registration CTA - Bottom Center */}
                 <div className="px-8 md:px-10 pb-8 pt-6 text-center border-t border-primary-100/30">
-                  <div className="group relative inline-flex items-center px-8 sm:px-12 py-6 bg-gradient-to-r from-gray-400 to-gray-500 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-lg cursor-not-allowed opacity-75">
-                    <span className="relative z-10">Registration Closed</span>
-                    <svg className="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-sm text-dark-secondary mt-4">
-                    This event has concluded. Our next meetup will be announced soon!
-                  </p>
+                  {eventDetails.registrationOpen ? (
+                    <>
+                      <a 
+                        href={eventDetails.registrationLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative inline-flex items-center px-8 sm:px-12 py-6 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                      >
+                        <span className="relative z-10">Register Now</span>
+                        <svg className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </a>
+                      <p className="text-sm text-dark-secondary mt-4">
+                        Secure your spot today! Limited seats available.
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <div className="group relative inline-flex items-center px-8 sm:px-12 py-6 bg-gradient-to-r from-gray-400 to-gray-500 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-lg cursor-not-allowed opacity-75">
+                        <span className="relative z-10">Registration Closed</span>
+                        <svg className="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p className="text-sm text-dark-secondary mt-4">
+                        {eventDetails.status === 'past' 
+                          ? 'This event has concluded. Our next meetup will be announced soon!'
+                          : 'Registration is currently closed.'}
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -198,4 +236,5 @@ const FirstEvent: React.FC = () => {
   );
 };
 
-export default FirstEvent;
+export default HomeEventCard;
+
