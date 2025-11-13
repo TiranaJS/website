@@ -46,6 +46,53 @@
         }
       ],
       "tags": ["community", "networking", "lightning-talks"]
+    },
+    {
+      "id": "tiranajs-meetup-2",
+      "title": "TiranaJS Meetup #2: Zero to Production with Cloudflare",
+      "date": "2025-11-25",
+      "dateFormatted": "25 November 2025",
+      "time": "18:30",
+      "location": {
+        "name": "Coolab",
+        "address": "Rruga e Dibrës Nr.65, Tiranë 1015, Albania",
+        "mapLink": "https://maps.google.com/?q=Coolab+Rruga+e+Dibrës+Nr.65+Tiranë"
+      },
+      "description": "Join us for TiranaJS Meetup #2! This month we're diving into production-ready serverless development with Cloudflare Workers. Mateo Kurti will walk us through a live demo and technical deep dive, followed by our monthly JavaScript ecosystem roundup.",
+      "status": "upcoming",
+      "registrationOpen": true,
+      "registrationLink": "https://luma.com/ua96riun",
+      "schedule": [
+        {
+          "time": "18:30",
+          "activity": "Doors Open, Drinks"
+        },
+        {
+          "time": "18:45",
+          "activity": "Zero to Production with Cloudflare Workers - A live demo and technical deep dive by Mateo Kurti"
+        },
+        {
+          "time": "19:20",
+          "activity": "This Month in JavaScript - News, releases, and notable updates from the JS ecosystem"
+        },
+        {
+          "time": "19:45",
+          "activity": "Networking, Food & Drinks 🌍🍕🍺"
+        }
+      ],
+      "highlights": [
+        "Live demo: Cloudflare Workers in production",
+        "Technical deep dive with Mateo Kurti",
+        "Latest JavaScript ecosystem updates",
+        "Networking with local developers"
+      ],
+      "speakers": [
+        {
+          "name": "Mateo Kurti",
+          "topic": "Zero to Production with Cloudflare Workers"
+        }
+      ],
+      "tags": ["cloudflare", "serverless", "technical-talk", "news"]
     }
   ],
   "_comment": "To add a new event, copy the template below and add it to the 'events' array above. Make sure to update all fields with your event information.",

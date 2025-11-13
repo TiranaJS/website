@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { getEvents } from '@/utils/getEvents';
 import { EventsData } from '@/types/event';
 
@@ -18,8 +19,9 @@ const HomeEventCard: React.FC = async () => {
     );
   }
 
-  // Get the first event or the most recent event
-  const eventDetails = eventData.events[0];
+  // Get the next upcoming event, or the most recent event if no upcoming events
+  const upcomingEvents = eventData.events.filter(event => event.status === 'upcoming');
+  const eventDetails = upcomingEvents.length > 0 ? upcomingEvents[0] : eventData.events[0];
   
   if (!eventDetails) {
     return (
@@ -46,11 +48,12 @@ const HomeEventCard: React.FC = async () => {
             📅 {eventDetails.status === 'upcoming' ? 'Upcoming Event' : eventDetails.status === 'ongoing' ? 'Live Event' : 'Past Event'}
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-dark-primary mb-4">
-            Our First Event
+            {eventDetails.status === 'upcoming' ? 'Next Meetup' : 'Latest Event'}
           </h2>
           <p className="text-xl text-dark-secondary max-w-2xl mx-auto leading-relaxed">
-            Be part of history! Join us for the very first TiranaJS community event and help us 
-            build something amazing together.
+            {eventDetails.status === 'upcoming' 
+              ? 'Join us for our next community meetup! Connect with fellow JavaScript enthusiasts and learn something new.'
+              : 'Check out our latest event. Stay tuned for more upcoming meetups!'}
           </p>
         </div>
 
@@ -72,7 +75,12 @@ const HomeEventCard: React.FC = async () => {
                   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                     <div className="flex-1">
                       <h3 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                        {eventDetails.title}
+                        <Link
+                          href={`/events/${eventDetails.id}`}
+                          className="block transition-colors duration-200 hover:text-white/90 hover:underline underline-offset-4"
+                        >
+                          {eventDetails.title}
+                        </Link>
                       </h3>
                       
                       <div className="flex flex-col sm:flex-row sm:items-center gap-6 text-white/90">
@@ -181,7 +189,7 @@ const HomeEventCard: React.FC = async () => {
                         </svg>
                       </a>
                       <p className="text-sm text-dark-secondary mt-4">
-                        Secure your spot today! Limited seats available.
+                        Secure your spot today!
                       </p>
                     </>
                   ) : (
@@ -205,7 +213,7 @@ const HomeEventCard: React.FC = async () => {
           </div>
         </div>
 
-        {/* New Community Card */}
+        {/* Community Card */}
         <div className="max-w-4xl mx-auto mt-12">
           <div className="p-8 bg-gradient-to-br from-primary-50 to-accent-lavender/30 rounded-2xl border border-primary-100/50">
             <div className="flex items-start">
@@ -215,10 +223,10 @@ const HomeEventCard: React.FC = async () => {
                 </svg>
               </div>
               <div>
-                <h5 className="font-bold text-dark-primary mb-3 text-2xl">New Community</h5>
+                <h5 className="font-bold text-dark-primary mb-3 text-2xl">Join Our Community</h5>
                 <p className="text-dark-secondary leading-relaxed text-lg">
-                  As a brand new community, this is our chance to shape TiranaJS together. 
-                  Your ideas and feedback will help define our future events!
+                  TiranaJS is growing! Connect with passionate JavaScript developers, share knowledge, 
+                  and help shape the future of our community. Your voice matters!
                 </p>
               </div>
             </div>
@@ -228,7 +236,7 @@ const HomeEventCard: React.FC = async () => {
         {/* Additional Info */}
         <div className="text-center mt-8">
           <p className="text-dark-secondary">
-            Can't make it to our first event? Follow us to stay updated on future events!
+            Can't make it to this event? Follow us to stay updated on future meetups!
           </p>
         </div>
       </div>
