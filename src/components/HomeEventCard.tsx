@@ -19,9 +19,18 @@ const HomeEventCard: React.FC = async () => {
     );
   }
 
-  // Get the next upcoming event, or the most recent event if no upcoming events
+  // Get the next upcoming event, or the most recent past event if no upcoming events
   const upcomingEvents = eventData.events.filter(event => event.status === 'upcoming');
-  const eventDetails = upcomingEvents.length > 0 ? upcomingEvents[0] : eventData.events[0];
+  const pastEvents = eventData.events
+    .filter(event => event.status === 'past')
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  const eventDetails =
+    upcomingEvents.length > 0
+      ? upcomingEvents[0]
+      : pastEvents.length > 0
+      ? pastEvents[0]
+      : eventData.events[0];
   
   if (!eventDetails) {
     return (
