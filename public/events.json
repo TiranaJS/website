@@ -59,8 +59,8 @@
         "mapLink": "https://maps.google.com/?q=Coolab+Rruga+e+Dibrës+Nr.65+Tiranë"
       },
       "description": "Join us for TiranaJS Meetup #2! This month we're diving into production-ready serverless development with Cloudflare Workers. Mateo Kurti will walk us through a live demo and technical deep dive, followed by our monthly JavaScript ecosystem roundup.",
-      "status": "upcoming",
-      "registrationOpen": true,
+      "status": "past",
+      "registrationOpen": false,
       "registrationLink": "https://luma.com/ua96riun",
       "schedule": [
         {
