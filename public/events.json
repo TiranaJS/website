@@ -93,6 +93,48 @@
         }
       ],
       "tags": ["cloudflare", "serverless", "technical-talk", "news"]
+    },
+    {
+      "id": "tiranajs-brunch-2025",
+      "title": "TiranaJS Brunch: Beyond the Daily Rush",
+      "date": "2025-12-20",
+      "dateFormatted": "20 December 2025",
+      "time": "10:00",
+      "location": {
+        "name": "Libraria Tirana Times",
+        "address": "8RC7+85C, Rruga Andon Zako Çajupi, Tiranë, Albania",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Libraria%20Tirana%20Times&query_place_id=ChIJ6_FTdwUxUBMRtdu_E3mcgsM"
+      },
+      "description": "One more TiranaJS before the year ends. No technical talks, no tutorials. Join us for a relaxed brunch to look back on the year and catch up with the community. Our friends at Bliss will stop by to share some thoughts on dealing with work stressors.",
+      "status": "upcoming",
+      "registrationOpen": true,
+      "registrationLink": "https://luma.com/s1vaht9m",
+      "schedule": [
+        {
+          "time": "10:00",
+          "activity": "Welcome & Coffee — arrive early for pastries and catch-ups"
+        },
+        {
+          "time": "11:00",
+          "activity": "Beyond the Daily Rush — reflection session with Arilda Dushaj from Bliss"
+        },
+        {
+          "time": "12:00",
+          "activity": "Networking — close out the year with relaxed conversations"
+        }
+      ],
+      "highlights": [
+        "Year-end community brunch with TiranaJS",
+        "Guided conversation on managing work stressors with Bliss",
+        "Plenty of space to unwind and reflect together"
+      ],
+      "speakers": [
+        {
+          "name": "Arilda Dushaj",
+          "topic": "Beyond the Daily Rush"
+        }
+      ],
+      "tags": ["community", "wellness", "brunch", "networking"]
     }
   ],
   "_comment": "To add a new event, copy the template below and add it to the 'events' array above. Make sure to update all fields with your event information.",
