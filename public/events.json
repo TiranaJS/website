@@ -106,8 +106,8 @@
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Libraria%20Tirana%20Times&query_place_id=ChIJ6_FTdwUxUBMRtdu_E3mcgsM"
       },
       "description": "One more TiranaJS before the year ends. No technical talks, no tutorials. Join us for a relaxed brunch to look back on the year and catch up with the community. Our friends at Bliss will stop by to share some thoughts on dealing with work stressors.",
-      "status": "upcoming",
-      "registrationOpen": true,
+      "status": "past",
+      "registrationOpen": false,
       "registrationLink": "https://luma.com/s1vaht9m",
       "schedule": [
         {
