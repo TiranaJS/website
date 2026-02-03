@@ -8,7 +8,7 @@
       "time": "18:30",
       "location": {
         "name": "One Connect Hub",
-        "address": "Rruga Dervish Hima, Tirana, Albania",
+        "address": "Bajram Curri Blvd, Tiranë 1001, Albania",
         "mapLink": "https://maps.app.goo.gl/WD7tLMf8wYkZuYbm8"
       },
       "description": "Join us for the inaugural event of TiranaJS! We're launching Tirana's newest JavaScript community with an evening of networking, lightning talks, and exciting discussions about the future of web development in our city.",
@@ -135,6 +135,52 @@
         }
       ],
       "tags": ["community", "wellness", "brunch", "networking"]
+    },
+    {
+      "id": "tiranajs-meetup-4",
+      "title": "TiranaJS Meetup #4: The Old Way, Rethought",
+      "date": "2026-02-12",
+      "dateFormatted": "12 February 2026",
+      "time": "18:30",
+      "location": {
+        "name": "One Connect Hub",
+        "address": "Bajram Curri Blvd, Tiranë 1001, Albania",
+        "mapLink": "https://maps.app.goo.gl/QJ9rLh8Nswucbye67"
+      },
+      "description": "​TiranaJS kicks off 2026! 🎉 ​Join our cozy vibes to learn and share more about tech and our local scene. Enea Xharau joins us for an in-depth session on a new mental model for Server-First React. Plus, catch up on the latest JavaScript news and trends.",
+      "status": "upcoming",
+      "registrationOpen": true,
+      "registrationLink": "https://luma.com/5d45q4th",
+      "schedule": [
+        {
+          "time": "18:30",
+          "activity": "Doors Open, Drinks"
+        },
+        {
+          "time": "18:45",
+          "activity": "The Old Way, Rethought! A New Mental Model for Server-First, React. An in-depth dive from Enea Xharau."
+        },
+        {
+          "time": "19:30",
+          "activity": "Recently in JavaScript - News, releases, and notable updates from the JS ecosystem"
+        },
+        {
+          "time": "19:50",
+          "activity": "Networking, Food & Drinks 🌍🍕🍺"
+        }
+      ],
+      "highlights": [
+        "In-depth dive into a new mental model for Server-First React",
+        "Catch up on the latest JavaScript news and trends",
+        "Networking and refreshments"
+      ],
+      "speakers": [
+        {
+          "name": "Enea Xharau",
+          "topic": "The Old Way, Rethought"
+        }
+      ],
+      "tags": ["community", "react", "javascript"]
     }
   ],
   "_comment": "To add a new event, copy the template below and add it to the 'events' array above. Make sure to update all fields with your event information.",
