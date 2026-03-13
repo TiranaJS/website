@@ -148,8 +148,8 @@
         "mapLink": "https://maps.app.goo.gl/QJ9rLh8Nswucbye67"
       },
       "description": "​TiranaJS kicks off 2026! 🎉 ​Join our cozy vibes to learn and share more about tech and our local scene. Enea Xharau joins us for an in-depth session on a new mental model for Server-First React. Plus, catch up on the latest JavaScript news and trends.",
-      "status": "upcoming",
-      "registrationOpen": true,
+      "status": "past",
+      "registrationOpen": false,
       "registrationLink": "https://luma.com/5d45q4th",
       "schedule": [
         {
@@ -181,6 +181,48 @@
         }
       ],
       "tags": ["community", "react", "javascript"]
+    },
+    {
+      "id": "tiranajs-meetup-5",
+      "title": "TiranaJS Meetup #5: The Multiplied Engineer",
+      "date": "2026-03-26",
+      "dateFormatted": "26 March 2026",
+      "time": "18:30",
+      "location": {
+        "name": "Innovation Hub, Pyramid of Tirana",
+        "address": "Pyramid of Tirana, Tiranë, Albania",
+        "mapLink": "https://maps.app.goo.gl/nPFCWFiorxoEALkq8"
+      },
+      "description": "TiranaJS meets Agents 🤖 Kostandin Angjellari will be presenting \"The Multiplied Engineer\". Join us in exploring how AI is reshaping what it means to be a developer today, and what the landscape of tooling looks like. You don't want to miss it.",
+      "status": "upcoming",
+      "registrationOpen": true,
+      "registrationLink": "https://luma.com/uvhrnl4p",
+      "schedule": [
+        {
+          "time": "18:30",
+          "activity": "Doors Open, grab a drink and catch up with the community"
+        },
+        {
+          "time": "18:45",
+          "activity": "The Multiplied Engineer! A framework for shipping products with AI Agents by Kostandin Angjellari"
+        },
+        {
+          "time": "19:45",
+          "activity": "Networking, Discussions, Food & Drinks 🍕🍺"
+        }
+      ],
+      "highlights": [
+        "Explore how AI Agents are reshaping software development",
+        "A framework for shipping products with AI by Kostandin Angjellari",
+        "Networking and refreshments"
+      ],
+      "speakers": [
+        {
+          "name": "Kostandin Angjellari",
+          "topic": "The Multiplied Engineer"
+        }
+      ],
+      "tags": ["community", "javascript", "ai"]
     }
   ],
   "_comment": "To add a new event, copy the template below and add it to the 'events' array above. Make sure to update all fields with your event information.",
@@ -205,10 +247,7 @@
         "activity": "Activity description"
       }
     ],
-    "highlights": [
-      "Highlight 1",
-      "Highlight 2"
-    ],
+    "highlights": ["Highlight 1", "Highlight 2"],
     "speakers": [
       {
         "name": "Speaker Name",
@@ -218,4 +257,3 @@
     "tags": ["tag1", "tag2"]
   }
 }
-
