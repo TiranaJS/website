@@ -223,6 +223,64 @@
         }
       ],
       "tags": ["community", "javascript", "ai"]
+    },
+    {
+      "id": "tiranajs-meetup-6",
+      "title": "TiranaJS Meetup #6: The Full-Stack Edition",
+      "date": "2026-06-11",
+      "dateFormatted": "11 June 2026",
+      "time": "18:30",
+      "location": {
+        "name": "Innovation Hubitat",
+        "address": "Piramida, Kati -1, Rruga, Tiranë 1001, Albania",
+        "mapLink": "https://www.google.com/maps/search/?api=1&query=Innovation%20Hubitat&query_place_id=ChIJoVzShGExUBMRE2JZ6LVhfVY"
+      },
+      "description": "TiranaJS is back for our 6th meetup, the Full-Stack Edition. Three speakers, three talks, spanning the whole stack — from frontend to backend and infrastructure — with a look ahead at where software development is heading next. Come for the talks, stay for the community. Sponsored by Sigma Software.",
+      "status": "upcoming",
+      "registrationOpen": true,
+      "registrationLink": "https://luma.com/o9ryuw9e",
+      "schedule": [
+        {
+          "time": "18:30",
+          "activity": "Doors Open, grab a drink and catch up with the community"
+        },
+        {
+          "time": "18:50",
+          "activity": "Welcome"
+        },
+        {
+          "time": "19:00",
+          "activity": "The Full Stack Edition - 3 talks"
+        },
+        {
+          "time": "20:30",
+          "activity": "Networking, Discussions, Food & Drinks 🍕🍺"
+        }
+      ],
+      "highlights": [
+        "Three full-stack talks from frontend to infrastructure",
+        "Sponsored by Sigma Software",
+        "Networking, food, and drinks"
+      ],
+      "speakers": [
+        {
+          "name": "Kostandin Dervishaj",
+          "topic": "From REST to Events: When to Make the Switch"
+        },
+        {
+          "name": "Hlib Holynskyi",
+          "topic": "Make Your Project Agent-Ready"
+        },
+        {
+          "name": "Enea Jahollari",
+          "topic": "100X better Forms with Angular Signal Forms"
+        }
+      ],
+      "tags": ["community", "javascript", "full-stack", "angular", "ai", "agents"],
+      "sponsor": {
+        "label": "Sponsored by Sigma Software",
+        "url": "https://sigma.software"
+      }
     }
   ],
   "_comment": "To add a new event, copy the template below and add it to the 'events' array above. Make sure to update all fields with your event information.",

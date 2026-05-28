@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getEventById, getEvents } from "@/utils/getEvents";
+import TextWithSponsorLink from "@/components/TextWithSponsorLink";
 
 type EventDetailPageProps = {
   params: Promise<{
@@ -190,7 +191,10 @@ export default async function EventDetailPage({
                   About this event
                 </h2>
                 <p className="text-lg text-dark-secondary leading-relaxed">
-                  {event.description}
+                  <TextWithSponsorLink
+                    text={event.description}
+                    sponsor={event.sponsor}
+                  />
                 </p>
               </div>
 
@@ -245,7 +249,12 @@ export default async function EventDetailPage({
                               <span className="text-primary-600 mr-3 mt-1">
                                 •
                               </span>
-                              <span>{highlight}</span>
+                              <span>
+                                <TextWithSponsorLink
+                                  text={highlight}
+                                  sponsor={event.sponsor}
+                                />
+                              </span>
                             </li>
                           ))}
                         </ul>

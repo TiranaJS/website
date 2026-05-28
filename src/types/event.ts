@@ -24,6 +24,10 @@ export interface Event {
   }[];
   tags: string[];
   image?: string;
+  sponsor?: {
+    label: string;
+    url: string;
+  };
 }
 
 export interface EventsData {
