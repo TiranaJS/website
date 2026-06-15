@@ -5,6 +5,8 @@ interface Partner {
   name: string;
   logo: string;
   url?: string;
+  imgWidth?: number;
+  imgHeight?: number;
 }
 
 const CommunityPartnerSection: React.FC = () => {
@@ -13,6 +15,13 @@ const CommunityPartnerSection: React.FC = () => {
       name: "ZürichJS",
       logo: "/assets/partners/zurichjs.svg",
       url: "https://zurichjs.com",
+    },
+    {
+      name: "WTS",
+      logo: "/assets/partners/wts.svg",
+      url: "https://wts.sh/",
+      imgWidth: 217,
+      imgHeight: 108,
     },
     {
       name: "JetBrains",
@@ -40,7 +49,7 @@ const CommunityPartnerSection: React.FC = () => {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center p-8 group transition-all duration-300"
+              className={`flex items-center justify-center p-8 group transition-all duration-300 ${index === partners.length - 1 && partners.length % 2 !== 0 ? "md:col-span-2" : ""}`}
             >
               {partner.url ? (
                 <a
@@ -52,9 +61,10 @@ const CommunityPartnerSection: React.FC = () => {
                   <Image
                     src={partner.logo}
                     alt={partner.name}
-                    width={200}
-                    height={80}
+                    width={partner.imgWidth || 200}
+                    height={partner.imgHeight || 80}
                     className="object-contain h-16 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                    style={partner.imgHeight && partner.imgHeight !== 80 ? { height: partner.imgHeight * 0.75 } : undefined}
                   />
                 </a>
               ) : (
@@ -62,9 +72,10 @@ const CommunityPartnerSection: React.FC = () => {
                   <Image
                     src={partner.logo}
                     alt={partner.name}
-                    width={200}
-                    height={80}
+                    width={partner.imgWidth || 200}
+                    height={partner.imgHeight || 80}
                     className="object-contain h-16 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                    style={partner.imgHeight && partner.imgHeight !== 80 ? { height: partner.imgHeight * 0.75 } : undefined}
                   />
                 </div>
               )}

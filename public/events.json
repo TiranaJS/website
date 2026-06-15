@@ -236,8 +236,8 @@
         "mapLink": "https://www.google.com/maps/search/?api=1&query=Innovation%20Hubitat&query_place_id=ChIJoVzShGExUBMRE2JZ6LVhfVY"
       },
       "description": "TiranaJS is back for our 6th meetup, the Full-Stack Edition. Three speakers, three talks, spanning the whole stack — from frontend to backend and infrastructure — with a look ahead at where software development is heading next. Come for the talks, stay for the community. Sponsored by Sigma Software.",
-      "status": "upcoming",
-      "registrationOpen": true,
+      "status": "past",
+      "registrationOpen": false,
       "registrationLink": "https://luma.com/o9ryuw9e",
       "schedule": [
         {
